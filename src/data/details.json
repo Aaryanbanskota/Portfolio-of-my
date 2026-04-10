@@ -1,0 +1,79 @@
+{
+  "profile": {
+    "name": "Aaryan Banskota",
+    "githubUrl": "https://github.com/Aaryanbanskota",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/213479755?v=4",
+    "title": "who am i ?",
+    "introduction": "I am Aaryan Banskota, a 17-year-old developer with 4 years of coding experience and a proven track record in engineering and innovation.",
+    "expandedBio": "I specialize in bridging the gap between hardware and software. With deep knowledge ranging from Microprocessor 8085 architectures to high-level App Development Architectures, I am committed to creating robust digital solutions.",
+    "stats": {
+      "repos": 40,
+      "followers": 7,
+      "following": 0,
+      "memberSince": "May 2025"
+    }
+  },
+  "hero": {
+    "imageUrl": "https://images.unsplash.com/photo-1542466500-dccb2789cbbb?q=80&w=800&auto=format&fit=crop",
+    "tagline": "Never give up"
+  },
+  "skills": {
+    "title": "skills",
+    "items": [
+      { "name": "HTML", "colorClass": "text-orange-400" },
+      { "name": "CSS", "colorClass": "text-blue-500" },
+      { "name": "JavaScript", "colorClass": "text-yellow-400" },
+      { "name": "React.js (Vite)", "colorClass": "text-cyan-400" },
+      { "name": "Shadcn UI", "colorClass": "text-zinc-50" },
+      { "name": "Tailwind CSS", "colorClass": "text-teal-400" },
+      { "name": "Bootstrap", "colorClass": "text-purple-500" },
+      { "name": "Supabase", "colorClass": "text-emerald-500" },
+      { "name": "Firebase", "colorClass": "text-yellow-500" },
+      { "name": "C / C++", "colorClass": "text-blue-600" },
+      { "name": "DBMS", "colorClass": "text-zinc-300" },
+      { "name": "Computer Hardware & Maintenance", "colorClass": "text-zinc-400" },
+      { "name": "Microprocessor 8085", "colorClass": "text-zinc-500" },
+      { "name": "App Development Architecture", "colorClass": "text-purple-400" },
+      { "name": "Java", "colorClass": "text-red-500" },
+      { "name": "MongoDB", "colorClass": "text-green-500" },
+      { "name": "Python", "colorClass": "text-blue-400" },
+      { "name": "Node.js", "colorClass": "text-green-600" },
+      { "name": "Git", "colorClass": "text-orange-500" },
+      { "name": "Socket.io", "colorClass": "text-zinc-100" },
+      { "name": "Three.js (Learning)", "colorClass": "text-indigo-400" },
+      { "name": "Google Cloud / Ads", "colorClass": "text-blue-500" }
+    ]
+  },
+  "milestones": {
+    "title": "Milestones",
+    "items": [
+      {
+        "title": "Hackathon Winner",
+        "description": "Won first place in the latest regional hackathon for building a scalable real-time solution.",
+        "imageUrl": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=800&auto=format&fit=crop",
+        "url": "https://github.com/Aaryanbanskota"
+      },
+      {
+        "title": "Government OJT",
+        "description": "Selected for On-the-Job Training assisting with internal government IT architecture.",
+        "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
+        "url": "https://github.com/Aaryanbanskota"
+      }
+    ]
+  },
+  "description": {
+    "paragraphs": [
+      "I'm a 17-year-old developer with 4 years of experience who loves building things that solve real-world problems.",
+      "I enjoy diving deep into technical research and exploring new technologies to see how they actually work.",
+      "I'm always experimenting and looking for better ways to turn creative ideas into functional digital solutions."
+    ]
+  },
+  "socials": [
+    { "name": "linkedin", "url": "https://linkedin.com" },
+    { "name": "facebook", "url": "https://facebook.com" },
+    { "name": "instagram", "url": "https://instagram.com" },
+    { "name": "twitter", "url": "https://twitter.com" },
+    { "name": "gmail", "url": "mailto:aaryan@example.com" },
+    { "name": "number", "url": "tel:+1234567890" }
+  ]
+}

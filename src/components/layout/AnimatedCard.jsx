@@ -26,26 +26,51 @@ export const itemVariants = {
   visible: { filter: 'blur(0px)', opacity: 1, y: 0, transition: { duration: 0.4 } },
 };
 
-export function AnimatedCard({ children, className, startX = 0, startY = 0, cardClassName = "" }) {
+export function AnimatedCard({ 
+  children, 
+  className, 
+  startX = 0, 
+  startY = 0, 
+  cardClassName = "",
+  layoutId = null,
+  onClick
+}) {
   return (
     <motion.div
       custom={{ x: startX, y: startY }}
       variants={cardVariants}
       initial="hidden"
       animate="visible"
-      className={`h-full w-full ${className || ''}`}
+      whileHover={{ y: -6, scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+      layoutId={layoutId}
+      onClick={onClick}
+      className={`relative h-full w-full group ${className ? className : ''} ${onClick ? 'cursor-pointer' : ''}`}
     >
-      <Card className={`h-full w-full bg-zinc-950 border-zinc-800 text-zinc-50 overflow-hidden rounded-3xl ${cardClassName}`}>
+      <Card className={`
+        h-full w-full bg-zinc-950/80 backdrop-blur-xl 
+        border-zinc-800/80 border-t border-l
+        border-b-[4px] border-r-[4px] border-b-zinc-900 border-r-zinc-900
+        shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_10px_30px_rgb(0,0,0,0.8)] 
+        transition-all duration-300 
+        group-hover:border-b-indigo-900/50 group-hover:border-r-indigo-900/50
+        group-hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_20px_50px_rgba(79,70,229,0.15)] 
+        text-zinc-50 overflow-hidden rounded-3xl ${cardClassName}
+      `}>
         {children}
       </Card>
+      
+      {/* 3D Reflection overlay */}
+      <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl pointer-events-none" />
     </motion.div>
   );
 }
 
-export function AnimatedText({ children, className = "" }) {
+export function AnimatedText({ children, className = "", as: Component = "div" }) {
+  const MotionComponent = motion[Component] || motion.div;
   return (
-    <motion.div variants={itemVariants} className={className}>
+    <MotionComponent variants={itemVariants} className={className}>
       {children}
-    </motion.div>
+    </MotionComponent>
   );
 }
