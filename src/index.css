@@ -1,5 +1,5 @@
 @import "tw-animate-css";
-@import "shadcn/tailwind.css";
+/* @import "shadcn/tailwind.css"; removed to fix tailwind v3 compatibility */
 @import "@fontsource-variable/geist";
 @tailwind base;
 @tailwind components;
@@ -78,7 +78,7 @@
     --sidebar-ring: oklch(0.556 0 0)
   }
   * {
-    @apply border-border outline-ring/50;
+    border-color: var(--border);
   }
   body {
     @apply bg-background text-foreground;
