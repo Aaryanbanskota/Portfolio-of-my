@@ -88,18 +88,24 @@
   }
 }
 
-/* Custom Sleek Dark Scrollbar */
+/* Custom Sleek Dark Capsule Scrollbar Inset for Rounded Popups */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #09090b;
+  background: transparent;
+  margin: 12px 0;
 }
 ::-webkit-scrollbar-thumb {
-  background: #27272a;
+  background-color: #27272a;
   border-radius: 9999px;
+  border: 3px solid transparent;
+  background-clip: padding-box;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3f3f46;
+  background-color: #52525b;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
 }
