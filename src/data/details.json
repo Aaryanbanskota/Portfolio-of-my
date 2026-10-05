@@ -171,12 +171,11 @@
     ]
   },
   "socials": [
-    { "name": "linkedin", "url": "https://linkedin.com" },
-    { "name": "facebook", "url": "https://facebook.com" },
-    { "name": "instagram", "url": "https://instagram.com" },
-    { "name": "twitter", "url": "https://twitter.com" },
-    { "name": "gmail", "url": "mailto:aaryan@example.com" },
-    { "name": "number", "url": "tel:+1234567890" }
+    { "name": "linkedin", "url": "https://www.linkedin.com/in/aaryan-banskota-164619370/", "handle": "aaryan-banskota" },
+    { "name": "facebook", "url": "https://www.facebook.com/aaryan.baskota.2025", "handle": "aaryan.baskota.2025" },
+    { "name": "instagram", "url": "https://www.instagram.com/its.aaryan_01/", "handle": "@its.aaryan_01" },
+    { "name": "twitter", "url": "https://x.com/Aaryan_banskota", "handle": "@Aaryan_banskota" },
+    { "name": "gmail", "url": "mailto:aaryanbanskota@gmail.com", "handle": "aaryanbanskota@gmail.com" }
   ],
   "projects": [
     {
