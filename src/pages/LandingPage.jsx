@@ -122,13 +122,15 @@ export default function LandingPage({ isPreloaderDone = true }) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              transition={{ duration: 0.15 }}
               onClick={() => setActiveId(null)}
-              className="absolute inset-0 bg-black/60 backdrop-blur-md cursor-pointer"
+              className="absolute inset-0 bg-black/75 cursor-pointer transform-gpu"
             />
             
             <motion.div 
               layoutId={activeId}
-              className="relative z-10 w-full max-w-4xl max-h-[90vh] overflow-y-auto dark:bg-zinc-950 bg-white border dark:border-zinc-800 border-slate-200 rounded-[2rem] shadow-[0_30px_100px_rgba(0,0,0,0.5)] flex flex-col overflow-hidden dark:text-zinc-50 text-slate-900"
+              transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+              className="relative z-10 w-full max-w-4xl max-h-[90vh] overflow-y-auto dark:bg-zinc-950 bg-white border dark:border-zinc-800 border-slate-200 rounded-[2rem] shadow-2xl flex flex-col overflow-hidden dark:text-zinc-50 text-slate-900 transform-gpu"
             >
               <button 
                 onClick={() => setActiveId(null)}

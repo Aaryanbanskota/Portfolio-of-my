@@ -259,13 +259,13 @@ export default function Blog() {
         <AnimatePresence>
           {isFilterOpen && (
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.2 }}
-              className="overflow-hidden"
+              initial={{ opacity: 0, scaleY: 0.95, y: -8 }}
+              animate={{ opacity: 1, scaleY: 1, y: 0 }}
+              exit={{ opacity: 0, scaleY: 0.95, y: -8 }}
+              transition={{ duration: 0.15, ease: "easeOut" }}
+              className="transform-gpu origin-top"
             >
-              <div className="p-5 rounded-3xl dark:bg-zinc-900/90 bg-slate-50 border dark:border-zinc-800 border-slate-200 space-y-4 shadow-lg backdrop-blur-md">
+              <div className="p-5 rounded-3xl dark:bg-zinc-900 bg-slate-50 border dark:border-zinc-800 border-slate-200 space-y-4 shadow-lg">
                 
                 {/* Categories */}
                 <div className="space-y-2">
