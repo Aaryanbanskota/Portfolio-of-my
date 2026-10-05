@@ -68,12 +68,12 @@ export default function LandingPage() {
 
           {/* 5. Milestones Box */}
           <AnimatedCard layoutId="milestones" onClick={() => setActiveId('milestones')} startX={-150} startY={150} className="md:col-span-1" cardClassName="p-8 justify-center">
-            <div className="flex items-center justify-between mb-4">
-              <AnimatedText className="text-xl font-light text-zinc-400">{details.milestones.title}</AnimatedText>
-              <span className="text-xs px-2.5 py-0.5 rounded-full bg-indigo-950 border border-indigo-800 text-indigo-300 font-semibold">
+            <AnimatedText className="flex items-center justify-between mb-4">
+              <span className="text-xl font-light text-zinc-400">{details.milestones.title}</span>
+              <span className="text-xs px-2.5 py-0.5 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 font-semibold">
                 {details.milestones.items.length} Total
               </span>
-            </div>
+            </AnimatedText>
             
             <div className="relative space-y-3.5 pl-1">
               {details.milestones.items.slice(0, 3).map((ms, i) => (
@@ -92,10 +92,10 @@ export default function LandingPage() {
               ))}
             </div>
 
-            <div className="mt-4 pt-3 border-t border-zinc-800/60 flex items-center justify-between text-xs text-indigo-400 font-medium">
+            <AnimatedText className="mt-4 pt-3 border-t border-zinc-800/60 flex items-center justify-between text-xs text-zinc-400 font-medium">
               <span>View full timeline</span>
               <span>+3 more ↗</span>
-            </div>
+            </AnimatedText>
           </AnimatedCard>
 
           {/* 6. Description Box */}
