@@ -127,7 +127,7 @@ export function MacDock() {
             onClick={toggleTheme}
             onHoverStart={() => setHoveredIndex('theme')}
             onHoverEnd={() => setHoveredIndex(null)}
-            animate={{ scale: getScale(3), y: getYParams(3) }}
+            animate={{ scale: getScale(apps.length), y: getYParams(apps.length) }}
             transition={{ type: "spring", stiffness: 400, damping: 25 }}
             className="relative flex items-center justify-center rounded-2xl dark:bg-gradient-to-b dark:from-zinc-800 dark:to-zinc-950 bg-slate-100 border border-slate-300 dark:border-zinc-700/60 shadow-md overflow-hidden hover:border-zinc-500 transition-colors"
             style={{ width: 44, height: 44, transformOrigin: 'bottom' }}
