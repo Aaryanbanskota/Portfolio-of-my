@@ -9,9 +9,7 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-zinc-950 text-zinc-50 flex flex-col font-sans p-6 md:p-10 pb-32 overflow-hidden selection:bg-indigo-500/30">
       
-      <nav className="flex justify-center md:justify-end space-x-6 mb-12 max-w-6xl mx-auto w-full text-zinc-400">
-        <span className="text-zinc-600 italic">Portfolio OS v2.0 3D</span>
-      </nav>
+
 
       <main className="flex-grow w-full max-w-6xl mx-auto relative cursor-default">
         <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-[auto_auto_auto] gap-6 h-full">
@@ -170,31 +168,64 @@ export default function LandingPage() {
                 )}
 
                 {activeId === 'profile' && (
-                  <div className="flex flex-col items-center justify-center text-center py-6">
-                     <img src={details.profile.avatarUrl} alt="Avatar" className="w-40 h-40 rounded-full border-4 border-indigo-500 shadow-[0_0_30px_rgba(99,102,241,0.4)] mb-8" />
-                     <h2 className="text-3xl font-bold text-zinc-100 mb-2">@{details.profile.githubUrl.split('/').pop()}</h2>
-                     <a href={details.profile.githubUrl} target="_blank" rel="noreferrer" className="text-indigo-400 hover:text-indigo-300 hover:underline mb-10">
-                       View full GitHub Profile ↗
-                     </a>
+                  <div className="flex flex-col items-center justify-center text-center py-6 space-y-8">
+                     <img src={details.profile.avatarUrl} alt="Avatar" className="w-32 h-32 rounded-full border-4 border-indigo-500 shadow-[0_0_30px_rgba(99,102,241,0.4)]" />
+                     <div>
+                       <h2 className="text-3xl font-bold text-zinc-100">@{details.profile.githubUrl.split('/').pop()}</h2>
+                       <a href={details.profile.githubUrl} target="_blank" rel="noreferrer" className="text-indigo-400 hover:text-indigo-300 hover:underline text-sm mt-1 inline-block">
+                         View GitHub Profile ↗
+                       </a>
+                     </div>
                      
-                     <div className="grid grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-2xl">
-                       <div className="p-6 rounded-2xl bg-zinc-900 border border-zinc-800">
-                         <div className="text-4xl font-black text-white mb-2">{details.profile.stats.repos}</div>
-                         <div className="text-zinc-500 uppercase tracking-widest text-xs">Repositories</div>
+                     {/* Stats Grid */}
+                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-3xl">
+                       <div className="p-5 rounded-2xl bg-zinc-900 border border-zinc-800 flex flex-col items-center justify-center">
+                         <div className="text-3xl font-black text-white">{details.profile.stats.repos}</div>
+                         <div className="text-zinc-400 uppercase tracking-widest text-xs mt-1">Repositories</div>
                        </div>
-                       <div className="p-6 rounded-2xl bg-zinc-900 border border-zinc-800">
-                         <div className="text-4xl font-black text-white mb-2">{details.profile.stats.followers}</div>
-                         <div className="text-zinc-500 uppercase tracking-widest text-xs">Followers</div>
+                       <div className="p-5 rounded-2xl bg-zinc-900 border border-zinc-800 flex flex-col items-center justify-center">
+                         <div className="text-3xl font-black text-white">{details.profile.stats.followers}</div>
+                         <div className="text-zinc-400 uppercase tracking-widest text-xs mt-1">Followers</div>
                        </div>
-                       <div className="p-6 rounded-2xl bg-zinc-900 border border-zinc-800">
-                         <div className="text-4xl font-black text-white mb-2">{details.profile.stats.following}</div>
-                         <div className="text-zinc-500 uppercase tracking-widest text-xs">Following</div>
+                       <div className="p-5 rounded-2xl bg-zinc-900 border border-zinc-800 flex flex-col items-center justify-center">
+                         <div className="text-3xl font-black text-white">{details.profile.stats.following}</div>
+                         <div className="text-zinc-400 uppercase tracking-widest text-xs mt-1">Following</div>
                        </div>
-                       <div className="p-6 rounded-2xl bg-zinc-900 border border-zinc-800">
-                         <div className="text-xl font-bold text-white mb-2 mt-2">{details.profile.stats.memberSince}</div>
-                         <div className="text-zinc-500 uppercase tracking-widest text-xs">Member Since</div>
+                       <div className="p-5 rounded-2xl bg-zinc-900 border border-zinc-800 flex flex-col items-center justify-center">
+                         <div className="text-lg font-bold text-white">{details.profile.stats.memberSince}</div>
+                         <div className="text-zinc-400 uppercase tracking-widest text-xs mt-1">Member Since</div>
                        </div>
                      </div>
+
+                     {/* Badges / GitHub Stats Card */}
+                     <div className="w-full max-w-3xl flex flex-col items-center gap-4">
+                       <h3 className="text-lg font-semibold text-zinc-300">GitHub Badges & Stats</h3>
+                       <div className="flex flex-wrap justify-center gap-4">
+                         <img 
+                           src="https://github-readme-stats.vercel.app/api?username=Aaryanbanskota&show_icons=true&theme=dark&bg_color=09090b&border_color=27272a&text_color=a1a1aa&icon_color=818cf8&title_color=f4f4f5" 
+                           alt="GitHub Stats" 
+                           className="rounded-xl border border-zinc-800 shadow-md max-w-full"
+                         />
+                         <img 
+                           src="https://github-readme-stats.vercel.app/api/top-langs/?username=Aaryanbanskota&layout=compact&theme=dark&bg_color=09090b&border_color=27272a&text_color=a1a1aa&title_color=f4f4f5" 
+                           alt="Top Languages" 
+                           className="rounded-xl border border-zinc-800 shadow-md max-w-full"
+                         />
+                       </div>
+                     </div>
+
+                     {/* Contributions Calendar Graph */}
+                     <div className="w-full max-w-3xl flex flex-col items-center gap-4">
+                       <h3 className="text-lg font-semibold text-zinc-300">GitHub Contributions</h3>
+                       <div className="w-full p-4 rounded-2xl bg-zinc-900 border border-zinc-800 overflow-x-auto flex justify-center">
+                         <img 
+                           src="https://ghchart.rshah.org/4f46e5/Aaryanbanskota" 
+                           alt="GitHub Contribution Graph" 
+                           className="min-w-[650px] w-full"
+                         />
+                       </div>
+                     </div>
+
                   </div>
                 )}
               </div>
