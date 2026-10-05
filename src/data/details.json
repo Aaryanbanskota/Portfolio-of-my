@@ -4,8 +4,8 @@
     "githubUrl": "https://github.com/Aaryanbanskota",
     "avatarUrl": "https://avatars.githubusercontent.com/u/213479755?v=4",
     "title": "who am i ?",
-    "introduction": "I am Aaryan Banskota, a 17-year-old developer with 4 years of coding experience and a proven track record in engineering and innovation.",
-    "expandedBio": "I specialize in bridging the gap between hardware and software. With deep knowledge ranging from Microprocessor 8085 architectures to high-level App Development Architectures, I am committed to creating robust digital solutions.",
+    "introduction": "I am Aaryan Banskota, an 18-year-old developer with 4 years of coding experience and a proven track record in engineering and innovation.",
+    "expandedBio": "I am an 18-year-old developer with 4 years of coding experience specializing in bridging the gap between hardware and software. With deep knowledge ranging from Microprocessor 8085 architectures to high-level App Development Architectures, I am committed to creating robust digital solutions.",
     "stats": {
       "repos": 40,
       "followers": 7,
@@ -102,22 +102,70 @@
     "title": "Milestones",
     "items": [
       {
-        "title": "Hackathon Winner",
-        "description": "Won first place in the latest regional hackathon for building a scalable real-time solution.",
-        "imageUrl": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=800&auto=format&fit=crop",
+        "id": "started-coding",
+        "title": "Started Coding Journey",
+        "description": "Began self-taught programming 4 years ago, building low-level & full-stack applications.",
+        "status": "Beginning",
+        "badge": "🚀 Started",
+        "imageUrl": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop",
+        "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
         "url": "https://github.com/Aaryanbanskota"
       },
       {
-        "title": "Government OJT",
-        "description": "Selected for On-the-Job Training assisting with internal government IT architecture.",
+        "id": "govt-ojt-1",
+        "title": "1st Government OJT",
+        "description": "Selected for On-the-Job Training assisting with municipal IT systems & public directories.",
+        "status": "Completed",
+        "badge": "🏛️ Govt OJT",
+        "imageUrl": "https://images.unsplash.com/photo-1577495508048-b635879837f1?q=80&w=800&auto=format&fit=crop",
+        "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
+        "url": "https://github.com/Aaryanbanskota/nagar-contact-data"
+      },
+      {
+        "id": "godawari-hacks",
+        "title": "Godawari Hacks 2025",
+        "description": "Won 1st Place 🏆 at Godawari Hacks for engineering a scalable offline-first productivity platform.",
+        "status": "Winner 🏆",
+        "badge": "🏆 Winner",
+        "imageUrl": "https://hack.godawari.edu.np/_next/image?url=%2Flogo-godawari-hacks-nobg.png&w=256&q=75",
+        "logoUrl": "https://hack.godawari.edu.np/_next/image?url=%2Flogo-godawari-hacks-nobg.png&w=256&q=75",
+        "url": "https://hack.godawari.edu.np/"
+      },
+      {
+        "id": "mbmc-webathon",
+        "title": "MBMC Webathon",
+        "description": "Participated in the web development hackathon at Madan Bhandari Memorial College (MBMC).",
+        "status": "Participant",
+        "badge": "💻 Participant",
+        "imageUrl": "https://www.mbmc.edu.np/assets/site/img/mbmc.svg",
+        "logoUrl": "https://www.mbmc.edu.np/assets/site/img/mbmc.svg",
+        "url": "https://www.mbmc.edu.np/"
+      },
+      {
+        "id": "govt-ojt-2",
+        "title": "2nd Government OJT",
+        "description": "Advanced On-the-Job Training expanding government IT architecture and offline tools.",
+        "status": "Completed",
+        "badge": "🏛️ Govt OJT #2",
         "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
+        "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+        "url": "https://github.com/Aaryanbanskota"
+      },
+      {
+        "id": "wcbt-hackathon",
+        "title": "WCBT Hackathon",
+        "description": "Participated in WCBT Hackathon showcasing rapid prototyping and software engineering.",
+        "status": "Participant",
+        "badge": "⚔️ Participant",
+        "imageUrl": "https://ik.imagekit.io/qn3m81dsk/university/Address%20(13).png",
+        "logoUrl": "https://ik.imagekit.io/qn3m81dsk/university/Address%20(13).png",
         "url": "https://github.com/Aaryanbanskota"
       }
     ]
   },
   "description": {
     "paragraphs": [
-      "I'm a 17-year-old developer with 4 years of experience who loves building things that solve real-world problems.",
+      "I'm an 18-year-old developer with 4 years of experience who loves building things that solve real-world problems.",
       "I enjoy diving deep into technical research and exploring new technologies to see how they actually work.",
       "I'm always experimenting and looking for better ways to turn creative ideas into functional digital solutions."
     ]

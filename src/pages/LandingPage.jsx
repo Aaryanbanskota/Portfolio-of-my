@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { AnimatedCard, AnimatedText } from '@/components/layout/AnimatedCard';
 import details from '@/data/details.json';
 
-export default function LandingPage() {
+export default function LandingPage({ isPreloaderDone = true }) {
   const [activeId, setActiveId] = useState(null);
 
   return (
@@ -13,19 +13,21 @@ export default function LandingPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-[auto_auto_auto] gap-6 h-full">
 
           {/* 1. Who Am I Box */}
-          <AnimatedCard layoutId="who-am-i" onClick={() => setActiveId('who-am-i')} startX={-150} startY={-150} className="md:col-span-2" cardClassName="p-8 justify-center">
+          <AnimatedCard isReady={isPreloaderDone} layoutId="who-am-i" onClick={() => setActiveId('who-am-i')} startX={-150} startY={-150} className="md:col-span-2" cardClassName="p-8 justify-center">
             <AnimatedText className="text-xl md:text-2xl font-light text-zinc-400 mb-2">{details.profile.title}</AnimatedText>
             <AnimatedText className="text-2xl md:text-3xl font-medium leading-relaxed drop-shadow-sm text-zinc-300">
-               I am <span className="text-indigo-400 font-semibold">{details.profile.name}</span>, a 17-year-old developer with 4 years of coding experience and a proven track record in engineering and innovation.
+               I am <span className="text-indigo-400 font-semibold">{details.profile.name}</span>, an 18-year-old developer with 4 years of coding experience and a proven track record in engineering and innovation.
             </AnimatedText>
           </AnimatedCard>
 
           {/* 2. Samurai Main Image Box (Hero) */}
-          <AnimatedCard layoutId="hero" className="md:col-span-1 md:row-span-2" startX={150} startY={-150} cardClassName="p-0 relative group overflow-hidden flex flex-col items-center text-center justify-end border-zinc-800">
+          <AnimatedCard isReady={isPreloaderDone} layoutId="hero" className="md:col-span-1 md:row-span-2" startX={150} startY={-150} cardClassName="p-0 relative group overflow-hidden flex flex-col items-center text-center justify-end border-zinc-800">
             <AnimatedText className="absolute inset-0 flex items-center justify-center -z-10">
                <img 
                  src={details.hero.imageUrl} 
                  alt="Hero" 
+                 decoding="async"
+                 loading="eager"
                  className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 ease-in-out"
                />
                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent" />
@@ -36,7 +38,7 @@ export default function LandingPage() {
           </AnimatedCard>
 
           {/* 3. Skills Box */}
-          <AnimatedCard layoutId="skills" onClick={() => setActiveId('skills')} startX={-150} startY={0} className="md:col-span-1 border-emerald-900/30" cardClassName="p-8 justify-center">
+          <AnimatedCard isReady={isPreloaderDone} layoutId="skills" onClick={() => setActiveId('skills')} startX={-150} startY={0} className="md:col-span-1 border-emerald-900/30" cardClassName="p-8 justify-center">
             <AnimatedText className="text-xl font-light text-zinc-400 mb-6">{details.skills.title}</AnimatedText>
             <div className="flex flex-wrap gap-2 text-sm font-medium">
               {details.skills.categories.flatMap(c => c.skills).slice(0, 6).map((skill, i) => (
@@ -52,7 +54,7 @@ export default function LandingPage() {
           </AnimatedCard>
 
           {/* 4. GitHub Profile Box */}
-          <AnimatedCard layoutId="profile" onClick={() => setActiveId('profile')} startX={0} startY={150} className="md:col-span-1" cardClassName="p-8 flex items-center justify-center group overflow-hidden relative">
+          <AnimatedCard isReady={isPreloaderDone} layoutId="profile" onClick={() => setActiveId('profile')} startX={0} startY={150} className="md:col-span-1" cardClassName="p-8 flex items-center justify-center group overflow-hidden relative">
             <div className="absolute inset-x-0 -top-px h-px w-full bg-gradient-to-r from-transparent via-blue-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
             <div className="flex flex-col items-center gap-6 z-10 pointer-events-none">
               <AnimatedText className="relative w-28 h-28 rounded-full border-[3px] border-zinc-700 shadow-[0_0_20px_rgba(0,0,0,0.5)] overflow-hidden group-hover:border-blue-500 transition-colors duration-500">
@@ -65,20 +67,39 @@ export default function LandingPage() {
           </AnimatedCard>
 
           {/* 5. Milestones Box */}
-          <AnimatedCard layoutId="milestones" onClick={() => setActiveId('milestones')} startX={-150} startY={150} className="md:col-span-1" cardClassName="p-8 justify-center">
-            <AnimatedText className="text-xl font-light text-zinc-400 mb-6">{details.milestones.title}</AnimatedText>
-            <ul className="space-y-4 text-lg font-medium list-none">
-              {details.milestones.items.map((ms, i) => (
-                <AnimatedText as="li" key={i} className="text-zinc-200 flex items-center gap-3">
-                   <div className="w-2 h-2 rounded-full bg-indigo-500 shadow-[0_0_10px_rgba(99,102,241,0.8)]" />
-                   {ms.title}
+          <AnimatedCard isReady={isPreloaderDone} layoutId="milestones" onClick={() => setActiveId('milestones')} startX={-150} startY={150} className="md:col-span-1" cardClassName="p-8 justify-center">
+            <AnimatedText className="flex items-center justify-between mb-4">
+              <span className="text-xl font-light text-zinc-400">{details.milestones.title}</span>
+              <span className="text-xs px-2.5 py-0.5 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 font-semibold">
+                {details.milestones.items.length} Total
+              </span>
+            </AnimatedText>
+            
+            <div className="relative space-y-3.5 pl-1">
+              {details.milestones.items.slice(0, 3).map((ms, i) => (
+                <AnimatedText key={i} className="relative flex items-center gap-3 text-zinc-200">
+                  {i < 2 && (
+                    <div className="absolute left-[4px] top-3 bottom-[-18px] w-[2px] bg-gradient-to-b from-indigo-500 via-indigo-500/80 to-indigo-500/40 shadow-[0_0_8px_rgba(99,102,241,0.6)] z-0" />
+                  )}
+                  <div className="relative z-10 w-2.5 h-2.5 rounded-full bg-indigo-500 shadow-[0_0_10px_rgba(99,102,241,0.9)] ring-2 ring-zinc-950 shrink-0" />
+                  <div className="flex items-center gap-2 overflow-hidden text-sm font-medium">
+                    {ms.logoUrl && (
+                      <img src={ms.logoUrl} alt={ms.title} className="w-4 h-4 object-contain shrink-0 rounded" />
+                    )}
+                    <span className="truncate text-zinc-200 font-semibold">{ms.title}</span>
+                  </div>
                 </AnimatedText>
               ))}
-            </ul>
+            </div>
+
+            <AnimatedText className="mt-4 pt-3 border-t border-zinc-800/60 flex items-center justify-between text-xs text-zinc-400 font-medium">
+              <span>View full timeline</span>
+              <span>+3 more ↗</span>
+            </AnimatedText>
           </AnimatedCard>
 
           {/* 6. Description Box */}
-          <AnimatedCard layoutId="desc" startX={150} startY={150} className="md:col-span-2" cardClassName="p-8 justify-center relative shadow-inner">
+          <AnimatedCard isReady={isPreloaderDone} layoutId="desc" startX={150} startY={150} className="md:col-span-2" cardClassName="p-8 justify-center relative shadow-inner">
             <div className="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-indigo-500 to-emerald-500 rounded-l-3xl opacity-50" />
             <AnimatedText className="text-lg md:text-xl font-light leading-relaxed text-zinc-300 space-y-4">
               {details.description.paragraphs.map((p, i) => (
@@ -118,7 +139,7 @@ export default function LandingPage() {
                   <div className="flex flex-col md:flex-row gap-10 items-center md:items-start text-left">
                      <img src={details.profile.avatarUrl} alt="Face" className="w-48 h-48 rounded-3xl object-cover shadow-2xl border-2 border-zinc-800" />
                      <div className="space-y-6">
-                       <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-cyan-400">
+                       <h2 className="text-4xl md:text-5xl font-black text-white">
                          {details.profile.name}
                        </h2>
                        <p className="text-xl text-zinc-300 leading-relaxed font-light">
@@ -134,7 +155,7 @@ export default function LandingPage() {
                     <div className="space-y-6">
                       {details.skills.categories.map((cat, idx) => (
                         <div key={idx} className="space-y-3">
-                          <h3 className="text-sm font-semibold uppercase tracking-wider text-indigo-400">{cat.category}</h3>
+                          <h3 className="text-sm font-semibold uppercase tracking-wider text-zinc-400">{cat.category}</h3>
                           <div className="flex flex-wrap gap-3">
                             {cat.skills.map((skill, i) => (
                               <motion.div 
@@ -142,7 +163,7 @@ export default function LandingPage() {
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ delay: i * 0.02 }}
                                 key={i} 
-                                className="px-3.5 py-2 text-sm rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-200 flex items-center gap-2.5 shadow-md hover:border-zinc-600 transition-colors"
+                                className="px-3.5 py-2 text-sm rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-200 flex items-center gap-2.5 shadow-md hover:border-zinc-700 transition-colors"
                               >
                                 <img src={skill.icon} alt={skill.name} className="w-4 h-4 object-contain" />
                                 <span>{skill.name}</span>
@@ -156,20 +177,86 @@ export default function LandingPage() {
                 )}
 
                 {activeId === 'milestones' && (
-                  <div>
-                    <h2 className="text-3xl font-bold text-zinc-100 mb-8 tracking-wide">Milestones</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-8">
+                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-zinc-800 pb-6">
+                      <div>
+                        <h2 className="text-3xl font-bold text-zinc-100 tracking-wide">Milestones Timeline</h2>
+                        <p className="text-zinc-400 text-sm mt-1">Explore key hackathons, achievements & engineering experience.</p>
+                      </div>
+                      <span className="self-start md:self-auto text-xs px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-300 font-medium">
+                        Timeline
+                      </span>
+                    </div>
+
+                    {/* Clean Timeline Path with Subtle Node Dots */}
+                    <div className="relative pl-6 md:pl-10 space-y-8">
+                      
+                      {/* Subtle Vertical Connector Line */}
+                      <div className="absolute left-[11px] md:left-[19px] top-6 bottom-6 w-[2px] bg-zinc-800 z-0" />
+
                       {details.milestones.items.map((ms, i) => (
-                        <a href={ms.url} target="_blank" rel="noreferrer" key={i} className="group block rounded-2xl border border-zinc-800 bg-zinc-900/50 overflow-hidden hover:border-indigo-500 transition-colors">
-                          <div className="h-48 overflow-hidden">
-                            <img src={ms.imageUrl} alt={ms.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                        <motion.div 
+                          key={i}
+                          initial={{ opacity: 0, x: -15 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: i * 0.06 }}
+                          className="relative flex items-start gap-4 md:gap-6 group"
+                        >
+                          {/* Subtle Interactive Dot Node */}
+                          <div className="relative z-10 w-5 h-5 md:w-6 md:h-6 rounded-full bg-zinc-800 border-2 border-zinc-700 group-hover:bg-indigo-500 group-hover:border-indigo-400 transition-all duration-200 shrink-0 mt-2 flex items-center justify-center cursor-pointer">
+                            <div className="w-1.5 h-1.5 rounded-full bg-zinc-400 group-hover:bg-white transition-colors" />
                           </div>
-                          <div className="p-6">
-                            <h3 className="text-xl font-bold text-zinc-100 mb-2 group-hover:text-indigo-400">{ms.title}</h3>
-                            <p className="text-zinc-400">{ms.description}</p>
-                          </div>
-                        </a>
+
+                          {/* Achievement Card */}
+                          <a 
+                            href={ms.url} 
+                            target="_blank" 
+                            rel="noreferrer"
+                            className="flex-grow p-5 md:p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800 group-hover:border-zinc-700 group-hover:bg-zinc-900/80 transition-all duration-200 block relative overflow-hidden"
+                          >
+                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                              
+                              {/* Left Info */}
+                              <div className="space-y-2 flex-grow">
+                                <div className="flex items-center gap-3">
+                                  <span className={`text-xs font-semibold px-3 py-1 rounded-full border shadow-sm ${
+                                    ms.status === 'Winner 🏆' ? 'bg-amber-950/60 border-amber-800/60 text-amber-300' :
+                                    ms.status === 'Completed' ? 'bg-emerald-950/60 border-emerald-800/60 text-emerald-300' :
+                                    'bg-zinc-800 border-zinc-700 text-zinc-300'
+                                  }`}>
+                                    {ms.badge || ms.status}
+                                  </span>
+                                </div>
+                                <h3 className="text-xl font-bold text-zinc-100 group-hover:text-white transition-colors">
+                                  {ms.title}
+                                </h3>
+                                <p className="text-zinc-400 text-sm leading-relaxed max-w-xl">
+                                  {ms.description}
+                                </p>
+                              </div>
+
+                              {/* Right Logo Container */}
+                              {ms.logoUrl && (
+                                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-zinc-950 rounded-xl border border-zinc-800 p-3 flex items-center justify-center shrink-0 group-hover:border-zinc-700 transition-colors">
+                                  <img 
+                                    src={ms.logoUrl} 
+                                    alt={ms.title} 
+                                    className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-200" 
+                                  />
+                                </div>
+                              )}
+
+                            </div>
+
+                            <div className="mt-4 pt-3 border-t border-zinc-800/60 flex items-center justify-between text-xs text-zinc-400 font-medium group-hover:text-zinc-200 transition-colors">
+                              <span>View details</span>
+                              <span className="group-hover:translate-x-1 transition-transform">↗</span>
+                            </div>
+                          </a>
+
+                        </motion.div>
                       ))}
+
                     </div>
                   </div>
                 )}

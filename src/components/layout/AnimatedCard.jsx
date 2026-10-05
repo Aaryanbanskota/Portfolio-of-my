@@ -33,14 +33,15 @@ export function AnimatedCard({
   startY = 0, 
   cardClassName = "",
   layoutId = null,
-  onClick
+  onClick,
+  isReady = true
 }) {
   return (
     <motion.div
       custom={{ x: startX, y: startY }}
       variants={cardVariants}
       initial="hidden"
-      animate="visible"
+      animate={isReady ? "visible" : "hidden"}
       whileHover={{ y: -6, scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
       layoutId={layoutId}
