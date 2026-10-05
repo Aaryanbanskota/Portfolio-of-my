@@ -1,0 +1,44 @@
+[
+  {
+    "id": "building-pocketdesk-offline-first",
+    "title": "Building PocketDesk: Engineering an Offline-First Ecosystem with Flutter",
+    "slug": "building-pocketdesk-offline-first",
+    "date": "October 2025",
+    "readTime": "5 min read",
+    "category": "Engineering",
+    "featured": true,
+    "views": "1.4k",
+    "summary": "Deep dive into designing a zero-cloud productivity suite combining Alarms, ICS Calendars, Notes, and Expense analytics running 100% offline.",
+    "coverUrl": "https://raw.githubusercontent.com/Aaryanbanskota/Pocket-Desk/main/assets/repobanner.png",
+    "tags": ["Flutter", "Dart", "Offline-First", "Architecture"],
+    "content": "# Building PocketDesk: Engineering an Offline-First Ecosystem with Flutter\n\nWhen building modern mobile applications, cloud synchronization is often treated as default. However, for core productivity tools like alarms, notes, calendars, and personal expense tracking, relying on continuous cloud connectivity introduces latency, privacy risks, and single points of failure.\n\n### Why Offline-First Architecture?\n\nOffline-first architecture flips the traditional paradigm. Instead of treating the device storage as a temporary cache for cloud databases, the device local database is the **authoritative source of truth**.\n\n```\n┌─────────────────────────────────────────────────────────────┐\n│                     PocketDesk App UI                       │\n└──────────────────────────────┬──────────────────────────────┘\n                               │ Isar Transactions\n┌──────────────────────────────▼──────────────────────────────┐\n│               Local NoSQL Database Engine                   │\n└──────────────────────────────┬──────────────────────────────┘\n                               │ Local Sync\n┌──────────────────────────────▼──────────────────────────────┐\n│         Peer-to-Peer Local Network Sync (Optional)          │\n└─────────────────────────────────────────────────────────────┘\n```\n\n### Key Lessons & Hardware Considerations\n\n1. **High-Frequency Transactions**: Using fast NoSQL storage engines ensures zero frame drops during quick state updates.\n2. **ICS Calendar Rules**: Implementing RFC 5545 recurrence rules offline requires pre-parsing event frequency trees.\n3. **Local Encryption**: Argon2id password hashing guarantees user security even if raw device files are extracted.\n\n---\n*Written by Aaryan Banskota*"
+  },
+  {
+    "id": "microprocessor-8085-to-app-architecture",
+    "title": "From 8085 Microprocessor to App Architecture: A Developer's Mindset",
+    "slug": "microprocessor-8085-to-app-architecture",
+    "date": "August 2025",
+    "readTime": "6 min read",
+    "category": "Computer Science",
+    "featured": false,
+    "views": "2.1k",
+    "summary": "Exploring how low-level register transfers, opcode cycles, and memory mapping influence clean high-level app architecture.",
+    "coverUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1000&auto=format&fit=crop",
+    "tags": ["Low-Level", "Architecture", "Computer Science", "Assembly"],
+    "content": "# From 8085 Microprocessor to App Architecture: A Developer's Mindset\n\nUnderstanding how hardware executes instructions at the gate level fundamentally changes how you write software at the application level.\n\n### Memory Registers vs. Memory Garbage\n\nIn the 8085 Microprocessor architecture, every byte counts. You have six 8-bit general-purpose registers (`B`, `C`, `D`, `E`, `H`, `L`) and an Accumulator (`A`). Operations are CPU-cycle bound.\n\n```assembly\n; Sample 8085 Addition Sequence\nMVI A, 05H    ; Load 05H into Accumulator\nMVI B, 03H    ; Load 03H into Register B\nADD B         ; Add B to A (Result = 08H)\nSTA 2000H     ; Store result at memory location 2000H\n```\n\n### Translating Low-Level Concepts to Modern Development\n\n- **CPU Cache Awareness**: Allocating memory contiguously improves hardware cache hits in performance-critical loops.\n- **State Immutability**: Just as processor flags update predictably after ALU ops, state changes in React or Flutter should flow deterministically.\n- **Resource Cleanup**: Never leave memory dangling—dispose of streams, controllers, and listeners.\n\n---\n*Written by Aaryan Banskota*"
+  },
+  {
+    "id": "winning-godawari-hacks-2025",
+    "title": "Winning Godawari Hacks 2025: Lessons in Rapid Engineering",
+    "slug": "winning-godawari-hacks-2025",
+    "date": "January 2025",
+    "readTime": "4 min read",
+    "category": "Hackathons",
+    "featured": false,
+    "views": "3.5k",
+    "summary": "Reflections on competing at Godawari Hacks 2025, solving complex hardware/software integrations under tight deadlines, and taking 1st place.",
+    "coverUrl": "https://hack.godawari.edu.np/_next/image?url=%2Flogo-godawari-hacks-nobg.png&w=256&q=75",
+    "tags": ["Hackathon", "Winner", "Story", "Hardware"],
+    "content": "# Winning Godawari Hacks 2025: Lessons in Rapid Engineering\n\nHackathons are high-pressure environments where technical skill, clear communication, and rapid execution converge.\n\n### The Problem & Solution\n\nDuring Godawari Hacks 2025, our goal was to build a robust software utility capable of functioning seamlessly in low-connectivity areas.\n\n### Core Winning Strategies\n\n1. **Scope Control**: We locked down the core MVP features within the first 3 hours.\n2. **Component Reusability**: Pre-built design tokens and modular UI components allowed us to ship a polished UI fast.\n3. **Empirical Pitching**: Demonstrating live offline synchronization on real hardware proved technical viability to judges.\n\n---\n*Written by Aaryan Banskota*"
+  }
+]

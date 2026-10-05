@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
+import blogs from '@/data/blogs.json';
 import details from '@/data/details.json';
 
 const markdownComponents = {
@@ -79,14 +80,72 @@ export default function BlogDetail() {
   const { blogId } = useParams();
   const navigate = useNavigate();
   const [copied, setCopied] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
-  const blog = details.blogs.find(b => b.id === blogId || b.slug === blogId);
+  const blog = blogs.find(b => b.id === blogId || b.slug === blogId);
 
-  const handleShare = () => {
+  const [isBookmarked, setIsBookmarked] = useState(() => {
+    try {
+      const saved = JSON.parse(localStorage.getItem('blog_bookmarks') || '[]');
+      return blog ? saved.includes(blog.id) : false;
+    } catch {
+      return false;
+    }
+  });
+
+  // Handle scroll progress
+  useEffect(() => {
+    const handleScroll = () => {
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (totalHeight > 0) {
+        const progress = (window.scrollY / totalHeight) * 100;
+        setScrollProgress(progress);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const toggleBookmark = () => {
+    if (!blog) return;
+    try {
+      const saved = JSON.parse(localStorage.getItem('blog_bookmarks') || '[]');
+      let updated;
+      if (saved.includes(blog.id)) {
+        updated = saved.filter(id => id !== blog.id);
+        setIsBookmarked(false);
+      } else {
+        updated = [...saved, blog.id];
+        setIsBookmarked(true);
+      }
+      localStorage.setItem('blog_bookmarks', JSON.stringify(updated));
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  const handleShare = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: blog?.title,
+          text: blog?.summary,
+          url: window.location.href,
+        });
+        return;
+      } catch {
+        // Fallback to clipboard
+      }
+    }
     navigator.clipboard.writeText(window.location.href);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
+
+  // Related articles
+  const relatedArticles = blog
+    ? blogs.filter(b => b.id !== blog.id && (b.category === blog.category || b.tags?.some(t => blog.tags?.includes(t)))).slice(0, 2)
+    : [];
 
   if (!blog) {
     return (
@@ -98,8 +157,14 @@ export default function BlogDetail() {
   }
 
   return (
-    <div className="min-h-screen p-4 sm:p-8 md:p-10 pb-36 max-w-4xl mx-auto space-y-8">
+    <div className="min-h-screen p-4 sm:p-8 md:p-10 pb-36 max-w-4xl mx-auto space-y-8 relative">
       
+      {/* Scroll Reading Progress Bar */}
+      <div 
+        className="fixed top-0 left-0 h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 z-50 transition-all duration-150"
+        style={{ width: `${scrollProgress}%` }}
+      />
+
       {/* Top Header Navigation */}
       <div className="flex items-center justify-between">
         <button 
@@ -109,12 +174,25 @@ export default function BlogDetail() {
           <span className="group-hover:-translate-x-1 transition-transform">←</span> Back to Articles
         </button>
 
-        <button 
-          onClick={handleShare}
-          className="flex items-center gap-2 px-4 py-2 rounded-xl dark:bg-indigo-600/20 bg-indigo-50 border dark:border-indigo-500/40 border-indigo-200 hover:dark:bg-indigo-600/30 hover:bg-indigo-100 dark:text-indigo-300 text-indigo-700 transition-all text-xs sm:text-sm font-semibold shadow-xs"
-        >
-          <span>{copied ? 'Link Copied! 📋' : 'Share Article 🔗'}</span>
-        </button>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={toggleBookmark}
+            className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl border text-xs sm:text-sm font-semibold transition-all shadow-xs ${
+              isBookmarked
+                ? 'bg-amber-500/10 border-amber-500/40 text-amber-500'
+                : 'dark:bg-zinc-900 bg-white border-slate-200 dark:border-zinc-800 dark:text-zinc-300 text-slate-700 hover:border-amber-400'
+            }`}
+          >
+            <span>{isBookmarked ? '★ Saved' : '☆ Bookmark'}</span>
+          </button>
+
+          <button 
+            onClick={handleShare}
+            className="flex items-center gap-2 px-4 py-2 rounded-xl dark:bg-indigo-600/20 bg-indigo-50 border dark:border-indigo-500/40 border-indigo-200 hover:dark:bg-indigo-600/30 hover:bg-indigo-100 dark:text-indigo-300 text-indigo-700 transition-all text-xs sm:text-sm font-semibold shadow-xs"
+          >
+            <span>{copied ? 'Copied! 📋' : 'Share 🔗'}</span>
+          </button>
+        </div>
       </div>
 
       {/* Article Cover Banner */}
@@ -128,6 +206,7 @@ export default function BlogDetail() {
             </span>
             <span className="dark:text-zinc-400 text-slate-500">{blog.date}</span>
             <span className="dark:text-zinc-400 text-slate-500">• {blog.readTime}</span>
+            {blog.views && <span className="dark:text-zinc-400 text-slate-500">• 👁 {blog.views} views</span>}
           </div>
 
           <h1 className="text-3xl sm:text-4xl font-black dark:text-white text-slate-900 leading-tight">
@@ -159,6 +238,32 @@ export default function BlogDetail() {
           {blog.content}
         </ReactMarkdown>
       </div>
+
+      {/* Related Articles Footer */}
+      {relatedArticles.length > 0 && (
+        <div className="space-y-4 pt-6">
+          <h3 className="text-xl font-bold dark:text-zinc-100 text-slate-900">Recommended Reading</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {relatedArticles.map(rel => (
+              <div
+                key={rel.id}
+                onClick={() => navigate(`/blog/${rel.id}`)}
+                className="p-5 rounded-2xl dark:bg-zinc-900 bg-white border dark:border-zinc-800 border-slate-200 hover:border-indigo-500 cursor-pointer transition-all space-y-2 group shadow-sm"
+              >
+                <span className="text-[10px] font-semibold px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">
+                  {rel.category}
+                </span>
+                <h4 className="text-base font-bold dark:text-zinc-100 text-slate-900 group-hover:text-indigo-500 transition-colors line-clamp-1">
+                  {rel.title}
+                </h4>
+                <p className="text-xs dark:text-zinc-400 text-slate-600 line-clamp-2 font-light">
+                  {rel.summary}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
     </div>
   );
