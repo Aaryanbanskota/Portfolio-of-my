@@ -232,20 +232,24 @@ export default function LandingPage() {
                        </div>
                      )}
 
-                     {/* Badges / GitHub Stats Card */}
+                     {/* GitHub Stats & Top Languages Side-by-Side */}
                      <div className="w-full max-w-3xl flex flex-col items-center gap-4">
-                       <h3 className="text-lg font-semibold text-zinc-300">GitHub Stats</h3>
-                       <div className="flex flex-wrap justify-center gap-4">
-                         <img 
-                           src="https://github-readme-stats.vercel.app/api?username=Aaryanbanskota&show_icons=true&theme=dark&bg_color=09090b&border_color=27272a&text_color=a1a1aa&icon_color=818cf8&title_color=f4f4f5" 
-                           alt="GitHub Stats" 
-                           className="rounded-xl border border-zinc-800 shadow-md max-w-full"
-                         />
-                         <img 
-                           src="https://github-readme-stats.vercel.app/api/top-langs/?username=Aaryanbanskota&layout=compact&theme=dark&bg_color=09090b&border_color=27272a&text_color=a1a1aa&title_color=f4f4f5" 
-                           alt="Top Languages" 
-                           className="rounded-xl border border-zinc-800 shadow-md max-w-full"
-                         />
+                       <h3 className="text-lg font-semibold text-zinc-300">GitHub Overview & Top Languages</h3>
+                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full items-stretch justify-items-center">
+                         <div className="w-full flex items-center justify-center p-2 rounded-2xl bg-zinc-900/60 border border-zinc-800/80 shadow-md">
+                           <img 
+                             src="https://github-readme-stats.vercel.app/api?username=Aaryanbanskota&show_icons=true&theme=dark&bg_color=09090b&border_color=27272a&text_color=a1a1aa&icon_color=818cf8&title_color=f4f4f5" 
+                             alt="GitHub Stats" 
+                             className="w-full h-auto max-h-[165px] object-contain rounded-xl"
+                           />
+                         </div>
+                         <div className="w-full flex items-center justify-center p-2 rounded-2xl bg-zinc-900/60 border border-zinc-800/80 shadow-md">
+                           <img 
+                             src="https://github-readme-stats.vercel.app/api/top-langs/?username=Aaryanbanskota&layout=compact&theme=dark&bg_color=09090b&border_color=27272a&text_color=a1a1aa&title_color=f4f4f5&hide_progress=false" 
+                             alt="Most Used Languages" 
+                             className="w-full h-auto max-h-[165px] object-contain rounded-xl"
+                           />
+                         </div>
                        </div>
                      </div>
 
