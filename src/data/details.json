@@ -140,6 +140,32 @@
       "rawReadmeUrl": "https://raw.githubusercontent.com/Aaryanbanskota/Pocket-Desk/refs/heads/main/README.md",
       "tags": ["Flutter", "Dart", "Android", "Linux", "Isar DB"],
       "license": "MIT",
+      "releases": [
+        {
+          "name": "PocketDesk-v1.2.1--trial",
+          "tag": "1.2.1--trial",
+          "publishedAt": "2026-09-27",
+          "downloadUrl": "https://github.com/Aaryanbanskota/Pocket-Desk/releases/download/1.2.1--trial/PocketDesk-v1.2.1--trial.apk",
+          "fileName": "PocketDesk-v1.2.1--trial.apk",
+          "size": "82.2 MB"
+        },
+        {
+          "name": "PocketDesk-v1.2.0 (Official Release)",
+          "tag": "1.2.0",
+          "publishedAt": "2026-09-27",
+          "downloadUrl": "https://github.com/Aaryanbanskota/Pocket-Desk/releases/download/1.2.0/PocketDesk--v1.2.0.apk",
+          "fileName": "PocketDesk--v1.2.0.apk",
+          "size": "79.7 MB"
+        },
+        {
+          "name": "PocketDesk-v1.0.0",
+          "tag": "v1.0.0",
+          "publishedAt": "2026-09-27",
+          "downloadUrl": "https://github.com/Aaryanbanskota/Pocket-Desk/releases/download/v1.0.0/PocketDesk-v1.0.0.apk",
+          "fileName": "PocketDesk-v1.0.0.apk",
+          "size": "74.1 MB"
+        }
+      ],
       "contributors": [
         { "name": "Aaryan Banskota", "github": "https://github.com/Aaryanbanskota", "avatar": "https://avatars.githubusercontent.com/u/213479755?v=4" }
       ]
