@@ -67,14 +67,19 @@ export default function LandingPage() {
           {/* 5. Milestones Box */}
           <AnimatedCard layoutId="milestones" onClick={() => setActiveId('milestones')} startX={-150} startY={150} className="md:col-span-1" cardClassName="p-8 justify-center">
             <AnimatedText className="text-xl font-light text-zinc-400 mb-6">{details.milestones.title}</AnimatedText>
-            <div className="relative space-y-6 pl-1">
+            <div className="relative space-y-4 pl-1">
               {details.milestones.items.map((ms, i) => (
-                <AnimatedText key={i} className="relative flex items-center gap-3.5 text-zinc-200">
+                <AnimatedText key={i} className="relative flex items-center gap-3 text-zinc-200">
                   {i < details.milestones.items.length - 1 && (
-                    <div className="absolute left-[4px] top-3 bottom-[-24px] w-[2px] bg-gradient-to-b from-indigo-500 via-indigo-500/80 to-indigo-500/40 shadow-[0_0_8px_rgba(99,102,241,0.6)]" />
+                    <div className="absolute left-[4px] top-3 bottom-[-20px] w-[2px] bg-gradient-to-b from-indigo-500 via-indigo-500/80 to-indigo-500/40 shadow-[0_0_8px_rgba(99,102,241,0.6)] z-0" />
                   )}
                   <div className="relative z-10 w-2.5 h-2.5 rounded-full bg-indigo-500 shadow-[0_0_10px_rgba(99,102,241,0.9)] ring-2 ring-zinc-950 shrink-0" />
-                  <span className="text-lg font-medium tracking-wide">{ms.title}</span>
+                  <div className="flex items-center gap-2 overflow-hidden text-sm font-medium">
+                    {ms.logoUrl && (
+                      <img src={ms.logoUrl} alt={ms.title} className="w-4 h-4 object-contain shrink-0 rounded" />
+                    )}
+                    <span className="truncate text-zinc-200 font-semibold">{ms.title}</span>
+                  </div>
                 </AnimatedText>
               ))}
             </div>
@@ -160,16 +165,32 @@ export default function LandingPage() {
 
                 {activeId === 'milestones' && (
                   <div>
-                    <h2 className="text-3xl font-bold text-zinc-100 mb-8 tracking-wide">Milestones</h2>
+                    <h2 className="text-3xl font-bold text-zinc-100 mb-8 tracking-wide">Milestones & Achievements</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       {details.milestones.items.map((ms, i) => (
-                        <a href={ms.url} target="_blank" rel="noreferrer" key={i} className="group block rounded-2xl border border-zinc-800 bg-zinc-900/50 overflow-hidden hover:border-indigo-500 transition-colors">
-                          <div className="h-48 overflow-hidden">
-                            <img src={ms.imageUrl} alt={ms.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                        <a href={ms.url} target="_blank" rel="noreferrer" key={i} className="group block rounded-2xl border border-zinc-800 bg-zinc-900/50 overflow-hidden hover:border-indigo-500/70 transition-colors relative flex flex-col">
+                          <div className="h-44 bg-zinc-950/80 flex items-center justify-center p-6 border-b border-zinc-800/80 relative">
+                            <span className={`absolute top-4 left-4 text-xs font-semibold px-3 py-1 rounded-full border shadow-sm ${
+                              ms.status === 'Winner 🏆' ? 'bg-amber-950/80 border-amber-500/60 text-amber-300' :
+                              ms.status === 'Completed' ? 'bg-emerald-950/80 border-emerald-500/60 text-emerald-300' :
+                              'bg-zinc-800 border-zinc-700 text-zinc-300'
+                            }`}>
+                              {ms.badge || ms.status}
+                            </span>
+                            <img 
+                              src={ms.logoUrl || ms.imageUrl} 
+                              alt={ms.title} 
+                              className="max-h-24 max-w-[80%] object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-md" 
+                            />
                           </div>
-                          <div className="p-6">
-                            <h3 className="text-xl font-bold text-zinc-100 mb-2 group-hover:text-indigo-400">{ms.title}</h3>
-                            <p className="text-zinc-400">{ms.description}</p>
+                          <div className="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                              <h3 className="text-xl font-bold text-zinc-100 mb-2 group-hover:text-indigo-400 transition-colors">{ms.title}</h3>
+                              <p className="text-zinc-400 text-sm leading-relaxed">{ms.description}</p>
+                            </div>
+                            <div className="mt-4 text-xs text-indigo-400 font-medium flex items-center gap-1 group-hover:underline">
+                              <span>Learn more</span> ↗
+                            </div>
                           </div>
                         </a>
                       ))}
