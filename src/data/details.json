@@ -129,5 +129,48 @@
     { "name": "twitter", "url": "https://twitter.com" },
     { "name": "gmail", "url": "mailto:aaryan@example.com" },
     { "name": "number", "url": "tel:+1234567890" }
+  ],
+  "projects": [
+    {
+      "id": "pocket-desk",
+      "title": "PocketDesk",
+      "shortDescription": "Your offline-first, privacy-respecting productivity ecosystem built with Flutter.",
+      "bannerUrl": "https://raw.githubusercontent.com/Aaryanbanskota/Pocket-Desk/main/assets/repobanner.png",
+      "githubUrl": "https://github.com/Aaryanbanskota/Pocket-Desk",
+      "rawReadmeUrl": "https://raw.githubusercontent.com/Aaryanbanskota/Pocket-Desk/refs/heads/main/README.md",
+      "tags": ["Flutter", "Dart", "Android", "Linux", "Isar DB"],
+      "license": "MIT",
+      "contributors": [
+        { "name": "Aaryan Banskota", "github": "https://github.com/Aaryanbanskota", "avatar": "https://avatars.githubusercontent.com/u/213479755?v=4" }
+      ]
+    },
+    {
+      "id": "nagar-sampark",
+      "title": "Nagar Sampark",
+      "shortDescription": "Offline-first government IT directory & employee finder created during Government On-the-Job Training.",
+      "bannerUrl": "https://images.unsplash.com/photo-1577495508048-b635879837f1?q=80&w=1000&auto=format&fit=crop",
+      "githubUrl": "https://github.com/Aaryanbanskota/nagar-contact-data",
+      "dataUrl": "https://github.com/Aaryanbanskota/nagar-contact-data",
+      "isPrivateApp": true,
+      "tags": ["Mobile", "Offline Directory", "Government OJT", "JSON DB"],
+      "license": "MIT",
+      "contributors": [
+        { "name": "Aaryan Banskota", "github": "https://github.com/Aaryanbanskota", "avatar": "https://avatars.githubusercontent.com/u/213479755?v=4" }
+      ],
+      "customReadme": "# 🏛️ Nagar Sampark (नगर सम्पर्क)\n\n**Offline-First Public Government & Official Directory Application**\n\nNagar Sampark was built during my **Government On-the-Job Training (OJT)** internship. It provides citizens with instant, offline access to verified contact details of municipal employees, elected officials, and public service departments.\n\n---\n\n## 🌟 Key Highlights\n- 🇳🇵 **Bilingual Interface**: Designed for seamless accessibility in both **English & Nepali**.\n- ⚡ **Offline-First & Ultra Fast**: All contact data is embedded locally for instant search without active internet.\n- 🔍 **Smart Quick Search**: Easily locate municipal officers, phone numbers, email addresses, and office hours.\n- 🔒 **Privacy Focused**: No user data collection, tracking, or cloud logins required.\n\n---\n\n## 📂 Public Contact Data Repository\nDue to government security policies, the application codebase remains private; however, the **public directory dataset** used by the app is open-source and available here:\n👉 [Nagar Contact Data Repository](https://github.com/Aaryanbanskota/nagar-contact-data)\n"
+    },
+    {
+      "id": "bloom-terminal",
+      "title": "Bloom Terminal",
+      "shortDescription": "A sleek, customizable Python terminal suite & developer CLI tool.",
+      "bannerUrl": "https://raw.githubusercontent.com/Aaryanbanskota/Bloom-terminal/main/docs/bloom_banner.jpg",
+      "githubUrl": "https://github.com/Aaryanbanskota/Bloom-terminal",
+      "rawReadmeUrl": "https://raw.githubusercontent.com/Aaryanbanskota/Bloom-terminal/refs/heads/main/README.md",
+      "tags": ["Python", "CLI", "Terminal UI", "Open Source"],
+      "license": "MIT",
+      "contributors": [
+        { "name": "Aaryan Banskota", "github": "https://github.com/Aaryanbanskota", "avatar": "https://avatars.githubusercontent.com/u/213479755?v=4" }
+      ]
+    }
   ]
 }
