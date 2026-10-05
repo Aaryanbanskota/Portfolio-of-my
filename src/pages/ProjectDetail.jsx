@@ -6,6 +6,101 @@ import details from '@/data/details.json';
 
 import rehypeRaw from 'rehype-raw';
 
+const markdownComponents = {
+  h1: ({ children }) => (
+    <h1 className="text-2xl md:text-3xl font-black text-white mt-6 mb-4 pb-3 border-b border-zinc-800 flex items-center gap-2">
+      {children}
+    </h1>
+  ),
+  h2: ({ children }) => (
+    <h2 className="text-xl md:text-2xl font-bold text-zinc-100 mt-8 mb-4 pb-2 border-b border-zinc-800/60 flex items-center gap-2">
+      {children}
+    </h2>
+  ),
+  h3: ({ children }) => (
+    <h3 className="text-lg font-semibold text-indigo-300 mt-6 mb-3">
+      {children}
+    </h3>
+  ),
+  p: ({ children }) => (
+    <p className="text-base text-zinc-300 leading-relaxed my-4 font-normal">
+      {children}
+    </p>
+  ),
+  ul: ({ children }) => (
+    <ul className="list-disc list-outside space-y-2.5 my-4 pl-6 text-zinc-300">
+      {children}
+    </ul>
+  ),
+  ol: ({ children }) => (
+    <ol className="list-decimal list-outside space-y-2.5 my-4 pl-6 text-zinc-300">
+      {children}
+    </ol>
+  ),
+  li: ({ children }) => (
+    <li className="pl-1 leading-relaxed text-zinc-300">
+      {children}
+    </li>
+  ),
+  blockquote: ({ children }) => (
+    <blockquote className="border-l-4 border-indigo-500 bg-indigo-950/30 px-5 py-4 my-6 rounded-r-xl text-indigo-200 italic font-medium border-y border-r border-indigo-500/20 shadow-sm">
+      {children}
+    </blockquote>
+  ),
+  code: ({ inline, children }) => {
+    if (inline) {
+      return (
+        <code className="px-2 py-0.5 rounded bg-zinc-800 text-indigo-300 text-sm font-mono border border-zinc-700/60">
+          {children}
+        </code>
+      );
+    }
+    return (
+      <code className="block p-4 rounded-xl bg-zinc-950 text-emerald-400 font-mono text-sm overflow-x-auto my-4 border border-zinc-800 shadow-inner">
+        {children}
+      </code>
+    );
+  },
+  pre: ({ children }) => (
+    <pre className="p-0 bg-transparent overflow-x-auto my-4">
+      {children}
+    </pre>
+  ),
+  hr: () => (
+    <hr className="my-8 border-t border-zinc-800" />
+  ),
+  a: ({ href, children }) => (
+    <a href={href} target="_blank" rel="noreferrer" className="text-indigo-400 hover:text-indigo-300 underline font-medium transition-colors">
+      {children}
+    </a>
+  ),
+  table: ({ children }) => (
+    <div className="overflow-x-auto my-6 rounded-xl border border-zinc-800">
+      <table className="w-full text-left border-collapse text-sm text-zinc-300">
+        {children}
+      </table>
+    </div>
+  ),
+  thead: ({ children }) => (
+    <thead className="bg-zinc-900/90 text-zinc-100 font-semibold border-b border-zinc-800">
+      {children}
+    </thead>
+  ),
+  th: ({ children }) => (
+    <th className="p-3 border-r border-zinc-800 last:border-r-0 font-semibold">
+      {children}
+    </th>
+  ),
+  td: ({ children }) => (
+    <td className="p-3 border-b border-r border-zinc-800/60 last:border-r-0 bg-zinc-950/40">
+      {children}
+    </td>
+  ),
+  img: ({ src, alt }) => (
+    <img src={src} alt={alt} className="rounded-xl border border-zinc-800 my-4 max-w-full h-auto shadow-md" />
+  ),
+};
+
 export default function ProjectDetail() {
   const { projectId } = useParams();
   const navigate = useNavigate();
@@ -92,18 +187,22 @@ export default function ProjectDetail() {
       <div className="grid grid-cols-1 lg:grid-cols-10 gap-8 items-start">
         
         {/* LEFT COLUMN: README Documentation (7 Columns) */}
-        <div className="lg:col-span-7 p-4 md:p-8 rounded-3xl bg-zinc-900/40 border border-zinc-800/80 shadow-lg space-y-6 overflow-hidden">
+        <div className="lg:col-span-7 p-6 md:p-8 rounded-3xl bg-zinc-900/40 border border-zinc-800/80 shadow-lg space-y-6 overflow-hidden">
           <div className="flex items-center justify-between border-b border-zinc-800 pb-4">
             <h3 className="text-xl font-bold text-zinc-100 flex items-center gap-2">
               <span>📖</span> README.md
             </h3>
           </div>
           
-          <div className="prose prose-invert max-w-none prose-indigo leading-relaxed text-zinc-300 font-light overflow-x-auto">
+          <div className="text-zinc-300 font-normal leading-relaxed">
             {loading && !activeReadme ? (
               <div className="py-12 text-center text-zinc-500 font-medium">Loading documentation...</div>
             ) : (
-              <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
+              <ReactMarkdown 
+                remarkPlugins={[remarkGfm]} 
+                rehypePlugins={[rehypeRaw]}
+                components={markdownComponents}
+              >
                 {activeReadme}
               </ReactMarkdown>
             )}
