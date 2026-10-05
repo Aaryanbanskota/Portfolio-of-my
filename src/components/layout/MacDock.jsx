@@ -56,10 +56,10 @@ export function MacDock() {
   return (
     <div className="fixed bottom-4 sm:bottom-6 inset-x-0 w-full flex justify-center pointer-events-none z-[200] px-4">
       <motion.div 
-        className="pointer-events-auto flex items-center gap-3 sm:gap-4 px-4 sm:px-5 py-2.5 sm:py-3 dark:bg-zinc-900/80 bg-white/80 backdrop-blur-2xl border dark:border-white/10 border-slate-300/80 rounded-3xl shadow-[0_25px_60px_rgba(0,0,0,0.3)] dark:shadow-[0_25px_60px_rgba(0,0,0,0.9)] transition-colors duration-300"
-        initial={{ y: 100, opacity: 0 }}
+        className="pointer-events-auto flex items-center gap-3 sm:gap-4 px-4 sm:px-5 py-2.5 sm:py-3 dark:bg-zinc-900 bg-white md:dark:bg-zinc-900/85 md:bg-white/85 md:backdrop-blur-xl border dark:border-white/10 border-slate-300/80 rounded-3xl shadow-[0_15px_40px_rgba(0,0,0,0.25)] dark:shadow-[0_15px_40px_rgba(0,0,0,0.8)] transition-colors duration-200 transform-gpu"
+        initial={{ y: 60, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ type: "spring", stiffness: 220, damping: 22 }}
+        transition={{ type: "spring", stiffness: 300, damping: 26 }}
       >
         {apps.map((app, index) => {
           const scale = getScale(index);

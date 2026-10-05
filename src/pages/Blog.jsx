@@ -138,6 +138,8 @@ export default function Blog() {
             <img 
               src={featuredArticle.coverUrl} 
               alt={featuredArticle.title} 
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
             />
             <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r dark:from-zinc-900 via-transparent to-transparent opacity-90" />
@@ -379,6 +381,8 @@ export default function Blog() {
                     <img
                       src={blog.coverUrl}
                       alt={blog.title}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t dark:from-zinc-950 from-slate-900/70 via-transparent to-transparent" />

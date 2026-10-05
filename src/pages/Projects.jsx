@@ -27,6 +27,8 @@ export default function Projects() {
               <img 
                 src={project.bannerUrl} 
                 alt={project.title} 
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
               />
               <div className="absolute inset-0 bg-gradient-to-t dark:from-zinc-950 from-slate-900/60 via-transparent to-transparent" />
