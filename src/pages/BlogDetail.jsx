@@ -6,6 +6,18 @@ import rehypeRaw from 'rehype-raw';
 import blogs from '@/data/blogs.json';
 import details from '@/data/details.json';
 
+const icons = {
+  bookmark: (filled) => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill={filled ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg>
+  ),
+  share: (
+    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" x2="12" y1="2" y2="15"/></svg>
+  ),
+  check: (
+    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+  ),
+};
+
 const markdownComponents = {
   h1: ({ children }) => (
     <h1 className="text-2xl md:text-3xl font-black dark:text-white text-slate-900 mt-6 mb-4 pb-3 border-b dark:border-zinc-800 border-slate-200 flex items-center gap-2">
@@ -43,7 +55,7 @@ const markdownComponents = {
     </li>
   ),
   blockquote: ({ children }) => (
-    <blockquote className="border-l-4 border-indigo-500 dark:bg-indigo-950/30 bg-indigo-50 px-5 py-4 my-6 rounded-r-xl dark:text-indigo-200 text-indigo-900 italic font-medium border-y border-r dark:border-indigo-500/20 border-indigo-200 shadow-sm">
+    <blockquote className="border-l-4 border-indigo-500 dark:bg-indigo-950/30 bg-indigo-50 px-5 py-4 my-6 rounded-r-xl dark:text-indigo-200 text-indigo-900 italic font-medium border-y border-r dark:border-indigo-500/20 border-indigo-200 shadow-xs">
       {children}
     </blockquote>
   ),
@@ -93,7 +105,6 @@ export default function BlogDetail() {
     }
   });
 
-  // Handle scroll progress
   useEffect(() => {
     const handleScroll = () => {
       const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -134,7 +145,7 @@ export default function BlogDetail() {
         });
         return;
       } catch {
-        // Fallback to clipboard
+        // Fallback
       }
     }
     navigator.clipboard.writeText(window.location.href);
@@ -142,7 +153,6 @@ export default function BlogDetail() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  // Related articles
   const relatedArticles = blog
     ? blogs.filter(b => b.id !== blog.id && (b.category === blog.category || b.tags?.some(t => blog.tags?.includes(t)))).slice(0, 2)
     : [];
@@ -161,41 +171,43 @@ export default function BlogDetail() {
       
       {/* Scroll Reading Progress Bar */}
       <div 
-        className="fixed top-0 left-0 h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 z-50 transition-all duration-150"
+        className="fixed top-0 left-0 h-1 bg-indigo-500 z-50 transition-all duration-150"
         style={{ width: `${scrollProgress}%` }}
       />
 
-      {/* Top Header Navigation */}
+      {/* Navigation Header */}
       <div className="flex items-center justify-between">
         <button 
           onClick={() => navigate('/blog')}
           className="flex items-center gap-2 px-4 py-2 rounded-xl dark:bg-zinc-900 bg-white border dark:border-zinc-800 border-slate-200 hover:dark:border-zinc-700 hover:border-slate-300 dark:text-zinc-300 text-slate-700 hover:dark:text-white hover:text-slate-900 transition-all text-sm font-medium shadow-xs group"
         >
-          <span className="group-hover:-translate-x-1 transition-transform">←</span> Back to Articles
+          <span className="group-hover:-translate-x-1 transition-transform">←</span> Back to Blog
         </button>
 
         <div className="flex items-center gap-2">
           <button
             onClick={toggleBookmark}
-            className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl border text-xs sm:text-sm font-semibold transition-all shadow-xs ${
+            className={`flex items-center gap-1.5 px-3 py-2 rounded-xl border text-xs sm:text-sm font-medium transition-all shadow-xs ${
               isBookmarked
                 ? 'bg-amber-500/10 border-amber-500/40 text-amber-500'
                 : 'dark:bg-zinc-900 bg-white border-slate-200 dark:border-zinc-800 dark:text-zinc-300 text-slate-700 hover:border-amber-400'
             }`}
           >
-            <span>{isBookmarked ? '★ Saved' : '☆ Bookmark'}</span>
+            {icons.bookmark(isBookmarked)}
+            <span>{isBookmarked ? 'Saved' : 'Bookmark'}</span>
           </button>
 
           <button 
             onClick={handleShare}
-            className="flex items-center gap-2 px-4 py-2 rounded-xl dark:bg-indigo-600/20 bg-indigo-50 border dark:border-indigo-500/40 border-indigo-200 hover:dark:bg-indigo-600/30 hover:bg-indigo-100 dark:text-indigo-300 text-indigo-700 transition-all text-xs sm:text-sm font-semibold shadow-xs"
+            className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl dark:bg-zinc-900 bg-white border dark:border-zinc-800 border-slate-200 dark:text-zinc-300 text-slate-700 hover:dark:border-zinc-700 transition-all text-xs sm:text-sm font-medium shadow-xs"
           >
-            <span>{copied ? 'Copied! 📋' : 'Share 🔗'}</span>
+            {copied ? icons.check : icons.share}
+            <span>{copied ? 'Link Copied' : 'Share'}</span>
           </button>
         </div>
       </div>
 
-      {/* Article Cover Banner */}
+      {/* Cover Header */}
       <div className="rounded-3xl overflow-hidden border dark:border-zinc-800 border-slate-200 dark:bg-zinc-900 bg-white shadow-xl relative">
         <img src={blog.coverUrl} alt={blog.title} className="w-full h-auto max-h-96 object-cover" />
         
@@ -206,14 +218,12 @@ export default function BlogDetail() {
             </span>
             <span className="dark:text-zinc-400 text-slate-500">{blog.date}</span>
             <span className="dark:text-zinc-400 text-slate-500">• {blog.readTime}</span>
-            {blog.views && <span className="dark:text-zinc-400 text-slate-500">• 👁 {blog.views} views</span>}
           </div>
 
           <h1 className="text-3xl sm:text-4xl font-black dark:text-white text-slate-900 leading-tight">
             {blog.title}
           </h1>
 
-          {/* Author Badge */}
           <div className="flex items-center gap-3 pt-2 border-t dark:border-zinc-800 border-slate-200">
             <img 
               src={details.profile.avatarUrl} 
@@ -222,13 +232,13 @@ export default function BlogDetail() {
             />
             <div>
               <h4 className="text-sm font-bold dark:text-zinc-200 text-slate-900">{details.profile.name}</h4>
-              <p className="text-xs dark:text-zinc-400 text-slate-500 font-light">Software Engineer & Tech Creator</p>
+              <p className="text-xs dark:text-zinc-400 text-slate-500 font-normal">Software Engineer</p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Article Markdown Body */}
+      {/* Article Body */}
       <div className="p-6 md:p-10 rounded-3xl dark:bg-zinc-900/40 bg-white border dark:border-zinc-800/80 border-slate-200 shadow-md">
         <ReactMarkdown 
           remarkPlugins={[remarkGfm]} 
@@ -239,16 +249,16 @@ export default function BlogDetail() {
         </ReactMarkdown>
       </div>
 
-      {/* Related Articles Footer */}
+      {/* Related Articles */}
       {relatedArticles.length > 0 && (
         <div className="space-y-4 pt-6">
-          <h3 className="text-xl font-bold dark:text-zinc-100 text-slate-900">Recommended Reading</h3>
+          <h3 className="text-xl font-bold dark:text-zinc-100 text-slate-900">More Articles</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {relatedArticles.map(rel => (
               <div
                 key={rel.id}
                 onClick={() => navigate(`/blog/${rel.id}`)}
-                className="p-5 rounded-2xl dark:bg-zinc-900 bg-white border dark:border-zinc-800 border-slate-200 hover:border-indigo-500 cursor-pointer transition-all space-y-2 group shadow-sm"
+                className="p-5 rounded-2xl dark:bg-zinc-900 bg-white border dark:border-zinc-800 border-slate-200 hover:border-indigo-500 cursor-pointer transition-all space-y-2 group shadow-xs"
               >
                 <span className="text-[10px] font-semibold px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">
                   {rel.category}
@@ -256,7 +266,7 @@ export default function BlogDetail() {
                 <h4 className="text-base font-bold dark:text-zinc-100 text-slate-900 group-hover:text-indigo-500 transition-colors line-clamp-1">
                   {rel.title}
                 </h4>
-                <p className="text-xs dark:text-zinc-400 text-slate-600 line-clamp-2 font-light">
+                <p className="text-xs dark:text-zinc-400 text-slate-600 line-clamp-2 font-normal">
                   {rel.summary}
                 </p>
               </div>
