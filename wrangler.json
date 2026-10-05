@@ -1,0 +1,11 @@
+{
+  "name": "portfolio",
+  "compatibility_date": "2026-10-05",
+  "pages_build_output_dir": "./dist",
+  "assets": {
+    "directory": "./dist"
+  },
+  "observability": {
+    "enabled": false
+  }
+}
