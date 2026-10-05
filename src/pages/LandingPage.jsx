@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { AnimatedCard, AnimatedText } from '@/components/layout/AnimatedCard';
 import details from '@/data/details.json';
 
