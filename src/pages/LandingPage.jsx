@@ -7,16 +7,16 @@ export default function LandingPage({ isPreloaderDone = true }) {
   const [activeId, setActiveId] = useState(null);
 
   return (
-    <div className="h-screen max-h-screen bg-zinc-950 text-zinc-50 flex flex-col font-sans p-4 md:p-8 pb-24 overflow-y-auto md:overflow-hidden selection:bg-indigo-500/30 justify-center">
+    <div className="h-screen max-h-screen dark:bg-zinc-950 bg-slate-100 dark:text-zinc-50 text-slate-900 flex flex-col font-sans p-4 md:p-8 pb-24 overflow-y-auto md:overflow-hidden selection:bg-indigo-500/30 justify-center transition-colors duration-300">
       
       <main className="w-full max-w-6xl mx-auto relative cursor-default my-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-[auto_auto_auto] gap-6 h-full">
 
           {/* 1. Who Am I Box */}
           <AnimatedCard isReady={isPreloaderDone} layoutId="who-am-i" onClick={() => setActiveId('who-am-i')} startX={-150} startY={-150} className="md:col-span-2" cardClassName="p-8 justify-center">
-            <AnimatedText className="text-xl md:text-2xl font-light text-zinc-400 mb-2">{details.profile.title}</AnimatedText>
-            <AnimatedText className="text-2xl md:text-3xl font-medium leading-relaxed drop-shadow-sm text-zinc-300">
-               I am <span className="text-indigo-400 font-semibold">{details.profile.name}</span>, an 18-year-old developer with 4 years of coding experience and a proven track record in engineering and innovation.
+            <AnimatedText className="text-xl md:text-2xl font-light dark:text-zinc-400 text-slate-500 mb-2">{details.profile.title}</AnimatedText>
+            <AnimatedText className="text-2xl md:text-3xl font-medium leading-relaxed drop-shadow-sm dark:text-zinc-300 text-slate-800">
+               I am <span className="text-indigo-600 dark:text-indigo-400 font-semibold">{details.profile.name}</span>, an 18-year-old developer with 4 years of coding experience and a proven track record in engineering and innovation.
             </AnimatedText>
           </AnimatedCard>
 
@@ -39,15 +39,15 @@ export default function LandingPage({ isPreloaderDone = true }) {
 
           {/* 3. Skills Box */}
           <AnimatedCard isReady={isPreloaderDone} layoutId="skills" onClick={() => setActiveId('skills')} startX={-150} startY={0} className="md:col-span-1 border-emerald-900/30" cardClassName="p-8 justify-center">
-            <AnimatedText className="text-xl font-light text-zinc-400 mb-6">{details.skills.title}</AnimatedText>
+            <AnimatedText className="text-xl font-light dark:text-zinc-400 text-slate-500 mb-6">{details.skills.title}</AnimatedText>
             <div className="flex flex-wrap gap-2 text-sm font-medium">
               {details.skills.categories.flatMap(c => c.skills).slice(0, 6).map((skill, i) => (
-                <AnimatedText key={i} className="px-2.5 py-1 rounded.lg bg-zinc-900 border border-zinc-800 text-zinc-300 flex items-center gap-1.5 text-xs">
+                <AnimatedText key={i} className="px-2.5 py-1 rounded-lg dark:bg-zinc-900 bg-slate-100 border dark:border-zinc-800 border-slate-200 dark:text-zinc-300 text-slate-700 flex items-center gap-1.5 text-xs">
                   <img src={skill.icon} alt={skill.name} className="w-3.5 h-3.5 object-contain" />
                   {skill.name}
                 </AnimatedText>
               ))}
-              <AnimatedText className="px-2 py-1 rounded bg-zinc-900 border border-zinc-800 text-zinc-500 text-xs">
+              <AnimatedText className="px-2 py-1 rounded dark:bg-zinc-900 bg-slate-100 border dark:border-zinc-800 border-slate-200 dark:text-zinc-500 text-slate-500 text-xs">
                 +{details.skills.categories.flatMap(c => c.skills).length - 6} more...
               </AnimatedText>
             </div>
@@ -57,10 +57,10 @@ export default function LandingPage({ isPreloaderDone = true }) {
           <AnimatedCard isReady={isPreloaderDone} layoutId="profile" onClick={() => setActiveId('profile')} startX={0} startY={150} className="md:col-span-1" cardClassName="p-8 flex items-center justify-center group overflow-hidden relative">
             <div className="absolute inset-x-0 -top-px h-px w-full bg-gradient-to-r from-transparent via-blue-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
             <div className="flex flex-col items-center gap-6 z-10 pointer-events-none">
-              <AnimatedText className="relative w-28 h-28 rounded-full border-[3px] border-zinc-700 shadow-[0_0_20px_rgba(0,0,0,0.5)] overflow-hidden group-hover:border-blue-500 transition-colors duration-500">
+              <AnimatedText className="relative w-28 h-28 rounded-full border-[3px] dark:border-zinc-700 border-slate-300 shadow-[0_0_20px_rgba(0,0,0,0.1)] overflow-hidden group-hover:border-blue-500 transition-colors duration-500">
                  <img src={details.profile.avatarUrl} alt="Avatar" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
               </AnimatedText>
-              <AnimatedText className="text-lg font-medium tracking-wide flex flex-col items-center text-zinc-200">
+              <AnimatedText className="text-lg font-medium tracking-wide flex flex-col items-center dark:text-zinc-200 text-slate-800">
                  <span>@{details.profile.githubUrl.split('/').pop()}</span>
               </AnimatedText>
             </div>
@@ -69,30 +69,30 @@ export default function LandingPage({ isPreloaderDone = true }) {
           {/* 5. Milestones Box */}
           <AnimatedCard isReady={isPreloaderDone} layoutId="milestones" onClick={() => setActiveId('milestones')} startX={-150} startY={150} className="md:col-span-1" cardClassName="p-8 justify-center">
             <AnimatedText className="flex items-center justify-between mb-4">
-              <span className="text-xl font-light text-zinc-400">{details.milestones.title}</span>
-              <span className="text-xs px-2.5 py-0.5 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 font-semibold">
+              <span className="text-xl font-light dark:text-zinc-400 text-slate-500">{details.milestones.title}</span>
+              <span className="text-xs px-2.5 py-0.5 rounded-full dark:bg-zinc-900 bg-slate-100 border dark:border-zinc-800 border-slate-200 dark:text-zinc-400 text-slate-600 font-semibold">
                 {details.milestones.items.length} Total
               </span>
             </AnimatedText>
             
             <div className="relative space-y-3.5 pl-1">
               {details.milestones.items.slice(0, 3).map((ms, i) => (
-                <AnimatedText key={i} className="relative flex items-center gap-3 text-zinc-200">
+                <AnimatedText key={i} className="relative flex items-center gap-3 dark:text-zinc-200 text-slate-800">
                   {i < 2 && (
                     <div className="absolute left-[4px] top-3 bottom-[-18px] w-[2px] bg-gradient-to-b from-indigo-500 via-indigo-500/80 to-indigo-500/40 shadow-[0_0_8px_rgba(99,102,241,0.6)] z-0" />
                   )}
-                  <div className="relative z-10 w-2.5 h-2.5 rounded-full bg-indigo-500 shadow-[0_0_10px_rgba(99,102,241,0.9)] ring-2 ring-zinc-950 shrink-0" />
+                  <div className="relative z-10 w-2.5 h-2.5 rounded-full bg-indigo-500 shadow-[0_0_10px_rgba(99,102,241,0.9)] ring-2 dark:ring-zinc-950 ring-white shrink-0" />
                   <div className="flex items-center gap-2 overflow-hidden text-sm font-medium">
                     {ms.logoUrl && (
                       <img src={ms.logoUrl} alt={ms.title} className="w-4 h-4 object-contain shrink-0 rounded" />
                     )}
-                    <span className="truncate text-zinc-200 font-semibold">{ms.title}</span>
+                    <span className="truncate dark:text-zinc-200 text-slate-800 font-semibold">{ms.title}</span>
                   </div>
                 </AnimatedText>
               ))}
             </div>
 
-            <AnimatedText className="mt-4 pt-3 border-t border-zinc-800/60 flex items-center justify-between text-xs text-zinc-400 font-medium">
+            <AnimatedText className="mt-4 pt-3 border-t dark:border-zinc-800/60 border-slate-200 flex items-center justify-between text-xs dark:text-zinc-400 text-slate-500 font-medium">
               <span>View full timeline</span>
               <span>+3 more ↗</span>
             </AnimatedText>
@@ -101,7 +101,7 @@ export default function LandingPage({ isPreloaderDone = true }) {
           {/* 6. Description Box */}
           <AnimatedCard isReady={isPreloaderDone} layoutId="desc" startX={150} startY={150} className="md:col-span-2" cardClassName="p-8 justify-center relative shadow-inner">
             <div className="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-indigo-500 to-emerald-500 rounded-l-3xl opacity-50" />
-            <AnimatedText className="text-lg md:text-xl font-light leading-relaxed text-zinc-300 space-y-4">
+            <AnimatedText className="text-lg md:text-xl font-light leading-relaxed dark:text-zinc-300 text-slate-700 space-y-4">
               {details.description.paragraphs.map((p, i) => (
                 <p key={i}>{p}</p>
               ))}
@@ -125,11 +125,11 @@ export default function LandingPage({ isPreloaderDone = true }) {
             
             <motion.div 
               layoutId={activeId}
-              className="relative z-10 w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-zinc-950 border border-zinc-800 rounded-[2rem] shadow-[0_30px_100px_rgba(0,0,0,0.8)] flex flex-col overflow-hidden"
+              className="relative z-10 w-full max-w-4xl max-h-[90vh] overflow-y-auto dark:bg-zinc-950 bg-white border dark:border-zinc-800 border-slate-200 rounded-[2rem] shadow-[0_30px_100px_rgba(0,0,0,0.5)] flex flex-col overflow-hidden dark:text-zinc-50 text-slate-900"
             >
               <button 
                 onClick={() => setActiveId(null)}
-                className="absolute top-6 right-6 w-8 h-8 flex items-center justify-center rounded-full bg-zinc-800 hover:bg-zinc-700 text-zinc-300 transition-colors z-20"
+                className="absolute top-6 right-6 w-8 h-8 flex items-center justify-center rounded-full dark:bg-zinc-800 bg-slate-100 hover:dark:bg-zinc-700 hover:bg-slate-200 dark:text-zinc-300 text-slate-700 transition-colors z-20"
               >
                 ✕
               </button>

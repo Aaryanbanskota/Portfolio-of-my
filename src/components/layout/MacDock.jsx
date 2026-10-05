@@ -125,10 +125,10 @@ export function MacDock() {
             onHoverEnd={() => setHoveredIndex(null)}
             animate={{ scale: getScale(3), y: getYParams(3) }}
             transition={{ type: "spring", stiffness: 400, damping: 25 }}
-            className="relative flex items-center justify-center rounded-2xl dark:bg-gradient-to-b dark:from-zinc-800 dark:to-zinc-950 bg-slate-100 border border-slate-300 dark:border-zinc-700/60 shadow-md overflow-hidden hover:border-amber-500 transition-colors"
+            className="relative flex items-center justify-center rounded-2xl dark:bg-gradient-to-b dark:from-zinc-800 dark:to-zinc-950 bg-slate-100 border border-slate-300 dark:border-zinc-700/60 shadow-md overflow-hidden hover:border-zinc-500 transition-colors"
             style={{ width: 44, height: 44, transformOrigin: 'bottom' }}
           >
-            <div className="dark:text-amber-400 text-amber-500 transition-transform duration-300 hover:rotate-45">
+            <div className="dark:text-zinc-200 text-slate-700 group-hover:text-indigo-500 dark:group-hover:text-white transition-colors">
               {theme === 'dark' ? icons.sun() : icons.moon()}
             </div>
           </motion.button>
