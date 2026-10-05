@@ -197,9 +197,37 @@ export default function LandingPage() {
                        </div>
                      </div>
 
+                     {/* GitHub Achievements Badges */}
+                     {details.profile.achievements && details.profile.achievements.length > 0 && (
+                       <div className="w-full max-w-3xl flex flex-col items-center gap-4">
+                         <h3 className="text-lg font-semibold text-zinc-300">Achievements</h3>
+                         <div className="flex flex-wrap justify-center gap-6">
+                           {details.profile.achievements.map((ach, idx) => (
+                             <a 
+                               key={idx}
+                               href={ach.url}
+                               target="_blank"
+                               rel="noreferrer"
+                               className="relative group p-4 rounded-2xl bg-zinc-900 border border-zinc-800 hover:border-indigo-500/50 hover:bg-zinc-800/80 transition-all flex flex-col items-center gap-2 shadow-lg"
+                             >
+                               <div className="relative w-16 h-16 flex items-center justify-center">
+                                 <img src={ach.badgeUrl} alt={ach.name} className="w-14 h-14 object-contain group-hover:scale-110 transition-transform" />
+                                 {ach.count && (
+                                   <span className="absolute -bottom-1 -right-1 px-1.5 py-0.5 text-[10px] font-bold rounded-full bg-indigo-600 text-white shadow-md border border-indigo-400">
+                                     {ach.count}
+                                   </span>
+                                 )}
+                               </div>
+                               <span className="text-xs font-medium text-zinc-300 group-hover:text-white transition-colors">{ach.name}</span>
+                             </a>
+                           ))}
+                         </div>
+                       </div>
+                     )}
+
                      {/* Badges / GitHub Stats Card */}
                      <div className="w-full max-w-3xl flex flex-col items-center gap-4">
-                       <h3 className="text-lg font-semibold text-zinc-300">GitHub Badges & Stats</h3>
+                       <h3 className="text-lg font-semibold text-zinc-300">GitHub Stats</h3>
                        <div className="flex flex-wrap justify-center gap-4">
                          <img 
                            src="https://github-readme-stats.vercel.app/api?username=Aaryanbanskota&show_icons=true&theme=dark&bg_color=09090b&border_color=27272a&text_color=a1a1aa&icon_color=818cf8&title_color=f4f4f5" 

@@ -11,7 +11,27 @@
       "followers": 7,
       "following": 0,
       "memberSince": "May 2025"
-    }
+    },
+    "achievements": [
+      {
+        "name": "Pull Shark",
+        "badgeUrl": "https://github.githubassets.com/assets/pull-shark-default-498c279a747d.png",
+        "count": "x2",
+        "url": "https://github.com/Aaryanbanskota?achievement=pull-shark&tab=achievements"
+      },
+      {
+        "name": "YOLO",
+        "badgeUrl": "https://github.githubassets.com/assets/yolo-default-be1ebb928da3.png",
+        "count": null,
+        "url": "https://github.com/Aaryanbanskota?tab=achievements"
+      },
+      {
+        "name": "Quickdraw",
+        "badgeUrl": "https://github.githubassets.com/assets/quickdraw-default-39c4f4d2f164.png",
+        "count": null,
+        "url": "https://github.com/Aaryanbanskota?tab=achievements"
+      }
+    ]
   },
   "hero": {
     "imageUrl": "https://images.unsplash.com/photo-1542466500-dccb2789cbbb?q=80&w=800&auto=format&fit=crop",

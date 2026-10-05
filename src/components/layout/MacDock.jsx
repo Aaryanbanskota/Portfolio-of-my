@@ -44,10 +44,10 @@ export function MacDock() {
   return (
     <div className="fixed bottom-6 inset-x-0 w-full flex justify-center pointer-events-none z-[200]">
       <motion.div 
-        className="pointer-events-auto flex items-end gap-2 px-4 pb-3 bg-zinc-950/70 backdrop-blur-3xl border border-zinc-800/80 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.8)] h-[72px]"
+        className="pointer-events-auto flex items-center gap-4 px-5 py-3 bg-zinc-900/60 backdrop-blur-2xl border border-white/10 rounded-3xl shadow-[0_25px_60px_rgba(0,0,0,0.9),inset_0_1px_1px_rgba(255,255,255,0.15)]"
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ type: "spring", stiffness: 200, damping: 20, delay: 0.2 }}
+        transition={{ type: "spring", stiffness: 220, damping: 22 }}
       >
         {apps.map((app, index) => {
           const scale = getScale(index);
@@ -55,45 +55,47 @@ export function MacDock() {
           const isHovered = hoveredIndex === index;
           const isActive = app.path && location.pathname === app.path;
 
-          const content = (
-            <div className="relative group flex flex-col items-center">
+          return (
+            <Link to={app.path} key={app.name} className="relative group flex flex-col items-center">
               {/* Floating Tooltip */}
               {isHovered && (
                 <motion.div 
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="absolute -top-14 bg-zinc-800 text-zinc-100 font-medium text-xs px-3 py-1.5 rounded-lg shadow-xl whitespace-nowrap border border-zinc-700 pointer-events-none"
+                  initial={{ opacity: 0, y: 8, scale: 0.9 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  className="absolute -top-12 bg-zinc-900/90 backdrop-blur-md text-zinc-100 font-semibold text-xs px-3 py-1 rounded-full shadow-2xl border border-zinc-700/80 pointer-events-none z-30"
                 >
                   {app.name}
                 </motion.div>
               )}
 
-              {/* Icon Container with Apple squircle-like look */}
+              {/* Icon Container - Glassy Squircle */}
               <motion.button
                 onHoverStart={() => setHoveredIndex(index)}
                 onHoverEnd={() => setHoveredIndex(null)}
                 animate={{ scale, y }}
-                transition={{ type: "spring", stiffness: 350, damping: 20 }}
-                className="relative flex items-center justify-center rounded-[14px] bg-gradient-to-tr from-zinc-800 to-zinc-700 shadow-lg border border-zinc-600/50 overflow-hidden hover:from-zinc-700 hover:to-zinc-600"
-                style={{ width: 44, height: 44, transformOrigin: 'bottom' }}
-                onClick={app.action}
+                transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                className={`relative flex items-center justify-center rounded-2xl bg-gradient-to-b from-zinc-800 to-zinc-950 border border-zinc-700/60 shadow-lg overflow-hidden transition-colors ${
+                  isActive 
+                    ? 'from-indigo-600/40 to-zinc-900 border-indigo-500/50 shadow-[0_0_20px_rgba(99,102,241,0.3)]' 
+                    : 'hover:from-zinc-700 hover:to-zinc-900 hover:border-zinc-500'
+                }`}
+                style={{ width: 48, height: 48, transformOrigin: 'bottom' }}
               >
-                <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent pointer-events-none" />
-                {app.icon()}
+                {/* Gloss Reflection Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-b from-white/15 via-transparent to-transparent pointer-events-none" />
+                <div className="text-zinc-200 group-hover:text-white transition-colors">
+                  {app.icon()}
+                </div>
               </motion.button>
 
-              {/* Active Dot indicator */}
-              <div className={`mt-1.5 w-[5px] h-[5px] rounded-full transition-all duration-300 ${isActive ? 'bg-zinc-300 shadow-[0_0_8px_rgba(255,255,255,0.8)]' : 'bg-transparent'}`} />
-            </div>
+              {/* Active Indicator Dot */}
+              <div className={`mt-1.5 w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                isActive 
+                  ? 'bg-indigo-400 shadow-[0_0_10px_rgba(129,140,248,1)]' 
+                  : 'bg-transparent'
+              }`} />
+            </Link>
           );
-
-          if (app.path) {
-            return <Link to={app.path} key={app.name}>{content}</Link>;
-          }
-          if (app.url) {
-            return <a href={app.url} target="_blank" rel="noreferrer" key={app.name}>{content}</a>;
-          }
-          return <div key={app.name}>{content}</div>;
         })}
       </motion.div>
     </div>
