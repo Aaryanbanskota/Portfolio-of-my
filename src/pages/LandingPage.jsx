@@ -7,11 +7,9 @@ export default function LandingPage() {
   const [activeId, setActiveId] = useState(null);
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-50 flex flex-col font-sans p-6 md:p-10 pb-32 overflow-hidden selection:bg-indigo-500/30">
+    <div className="h-screen max-h-screen bg-zinc-950 text-zinc-50 flex flex-col font-sans p-4 md:p-8 pb-24 overflow-y-auto md:overflow-hidden selection:bg-indigo-500/30 justify-center">
       
-
-
-      <main className="flex-grow w-full max-w-6xl mx-auto relative cursor-default">
+      <main className="w-full max-w-6xl mx-auto relative cursor-default my-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-[auto_auto_auto] gap-6 h-full">
 
           {/* 1. Who Am I Box */}
@@ -41,13 +39,14 @@ export default function LandingPage() {
           <AnimatedCard layoutId="skills" onClick={() => setActiveId('skills')} startX={-150} startY={0} className="md:col-span-1 border-emerald-900/30" cardClassName="p-8 justify-center">
             <AnimatedText className="text-xl font-light text-zinc-400 mb-6">{details.skills.title}</AnimatedText>
             <div className="flex flex-wrap gap-2 text-sm font-medium">
-              {details.skills.items.slice(0, 5).map((skill, i) => (
-                <AnimatedText key={i} className={`px-2 py-1 rounded bg-zinc-900 border border-zinc-800 ${skill.colorClass}`}>
+              {details.skills.categories.flatMap(c => c.skills).slice(0, 6).map((skill, i) => (
+                <AnimatedText key={i} className="px-2.5 py-1 rounded.lg bg-zinc-900 border border-zinc-800 text-zinc-300 flex items-center gap-1.5 text-xs">
+                  <img src={skill.icon} alt={skill.name} className="w-3.5 h-3.5 object-contain" />
                   {skill.name}
                 </AnimatedText>
               ))}
-              <AnimatedText className="px-2 py-1 rounded bg-zinc-900 border border-zinc-800 text-zinc-500">
-                +{details.skills.items.length - 5} more...
+              <AnimatedText className="px-2 py-1 rounded bg-zinc-900 border border-zinc-800 text-zinc-500 text-xs">
+                +{details.skills.categories.flatMap(c => c.skills).length - 6} more...
               </AnimatedText>
             </div>
           </AnimatedCard>
@@ -130,19 +129,27 @@ export default function LandingPage() {
                 )}
 
                 {activeId === 'skills' && (
-                  <div>
-                    <h2 className="text-3xl font-bold text-zinc-100 mb-8 tracking-wide">My Technology Stack</h2>
-                    <div className="flex flex-wrap gap-4">
-                      {details.skills.items.map((skill, i) => (
-                        <motion.div 
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          transition={{ delay: i * 0.03 }}
-                          key={i} 
-                          className={`px-4 py-2 text-lg rounded-xl bg-zinc-900 border border-zinc-700 shadow-md ${skill.colorClass}`}
-                        >
-                          {skill.name}
-                        </motion.div>
+                  <div className="space-y-8">
+                    <h2 className="text-3xl font-bold text-zinc-100 tracking-wide">Skills & Technologies</h2>
+                    <div className="space-y-6">
+                      {details.skills.categories.map((cat, idx) => (
+                        <div key={idx} className="space-y-3">
+                          <h3 className="text-sm font-semibold uppercase tracking-wider text-indigo-400">{cat.category}</h3>
+                          <div className="flex flex-wrap gap-3">
+                            {cat.skills.map((skill, i) => (
+                              <motion.div 
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ delay: i * 0.02 }}
+                                key={i} 
+                                className="px-3.5 py-2 text-sm rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-200 flex items-center gap-2.5 shadow-md hover:border-zinc-600 transition-colors"
+                              >
+                                <img src={skill.icon} alt={skill.name} className="w-4 h-4 object-contain" />
+                                <span>{skill.name}</span>
+                              </motion.div>
+                            ))}
+                          </div>
+                        </div>
                       ))}
                     </div>
                   </div>
