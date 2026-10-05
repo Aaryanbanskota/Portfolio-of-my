@@ -49,14 +49,15 @@ export function AnimatedCard({
       className={`relative h-full w-full group ${className ? className : ''} ${onClick ? 'cursor-pointer' : ''}`}
     >
       <Card className={`
-        h-full w-full bg-zinc-950/80 backdrop-blur-xl 
-        border-zinc-800/80 border-t border-l
-        border-b-[4px] border-r-[4px] border-b-zinc-900 border-r-zinc-900
-        shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_10px_30px_rgb(0,0,0,0.8)] 
+        h-full w-full 
+        dark:bg-zinc-950/80 bg-white/90 backdrop-blur-xl 
+        dark:border-zinc-800/80 border-slate-200 border-t border-l
+        dark:border-b-[4px] dark:border-r-[4px] dark:border-b-zinc-900 dark:border-r-zinc-900
+        border-b-[3px] border-r-[3px] border-b-slate-300 border-r-slate-300
+        shadow-[0_10px_30px_rgba(0,0,0,0.06)] dark:shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_10px_30px_rgb(0,0,0,0.8)] 
         transition-all duration-300 
-        group-hover:border-b-indigo-900/50 group-hover:border-r-indigo-900/50
-        group-hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_20px_50px_rgba(79,70,229,0.15)] 
-        text-zinc-50 overflow-hidden rounded-3xl ${cardClassName}
+        group-hover:border-b-indigo-500/50 group-hover:border-r-indigo-500/50
+        dark:text-zinc-50 text-slate-900 overflow-hidden rounded-3xl ${cardClassName}
       `}>
         {children}
       </Card>
