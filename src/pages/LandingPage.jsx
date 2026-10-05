@@ -16,7 +16,7 @@ export default function LandingPage() {
           <AnimatedCard layoutId="who-am-i" onClick={() => setActiveId('who-am-i')} startX={-150} startY={-150} className="md:col-span-2" cardClassName="p-8 justify-center">
             <AnimatedText className="text-xl md:text-2xl font-light text-zinc-400 mb-2">{details.profile.title}</AnimatedText>
             <AnimatedText className="text-2xl md:text-3xl font-medium leading-relaxed drop-shadow-sm text-zinc-300">
-               I am <span className="text-indigo-400 font-semibold">{details.profile.name}</span>, a 17-year-old developer with 4 years of coding experience and a proven track record in engineering and innovation.
+               I am <span className="text-indigo-400 font-semibold">{details.profile.name}</span>, an 18-year-old developer with 4 years of coding experience and a proven track record in engineering and innovation.
             </AnimatedText>
           </AnimatedCard>
 
@@ -26,6 +26,8 @@ export default function LandingPage() {
                <img 
                  src={details.hero.imageUrl} 
                  alt="Hero" 
+                 decoding="async"
+                 loading="eager"
                  className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 ease-in-out"
                />
                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent" />
