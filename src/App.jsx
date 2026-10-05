@@ -6,6 +6,8 @@ import Contact from './pages/Contact';
 import { MacDock } from './components/layout/MacDock';
 import details from './data/details.json';
 
+import ProjectDetail from './pages/ProjectDetail';
+
 function App() {
   useEffect(() => {
     let link = document.querySelector("link[rel~='icon']");
@@ -24,6 +26,7 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/projects/:projectId" element={<ProjectDetail />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
         <MacDock />

@@ -14,20 +14,26 @@
     },
     "achievements": [
       {
-        "name": "Pull Shark",
-        "badgeUrl": "https://github.githubassets.com/assets/pull-shark-default-498c279a747d.png",
-        "count": "x2",
-        "url": "https://github.com/Aaryanbanskota?achievement=pull-shark&tab=achievements"
-      },
-      {
-        "name": "YOLO",
-        "badgeUrl": "https://github.githubassets.com/assets/yolo-default-be1ebb928da3.png",
+        "name": "Pair Extraordinaire",
+        "badgeUrl": "https://github.githubassets.com/assets/pair-extraordinaire-default-579438a20e01.png",
         "count": null,
         "url": "https://github.com/Aaryanbanskota?tab=achievements"
       },
       {
+        "name": "Pull Shark",
+        "badgeUrl": "https://github.githubassets.com/assets/pull-shark-bronze-a37accb528d1.png",
+        "count": "x2",
+        "url": "https://github.com/Aaryanbanskota?achievement=pull-shark&tab=achievements"
+      },
+      {
         "name": "Quickdraw",
-        "badgeUrl": "https://github.githubassets.com/assets/quickdraw-default-39c4f4d2f164.png",
+        "badgeUrl": "https://github.githubassets.com/assets/quickdraw-default-39c6aec8ff89.png",
+        "count": null,
+        "url": "https://github.com/Aaryanbanskota?tab=achievements"
+      },
+      {
+        "name": "YOLO",
+        "badgeUrl": "https://github.githubassets.com/assets/yolo-default-be0bbff04951.png",
         "count": null,
         "url": "https://github.com/Aaryanbanskota?tab=achievements"
       }
@@ -38,30 +44,58 @@
     "tagline": "Never give up"
   },
   "skills": {
-    "title": "skills",
-    "items": [
-      { "name": "HTML", "colorClass": "text-orange-400" },
-      { "name": "CSS", "colorClass": "text-blue-500" },
-      { "name": "JavaScript", "colorClass": "text-yellow-400" },
-      { "name": "React.js (Vite)", "colorClass": "text-cyan-400" },
-      { "name": "Shadcn UI", "colorClass": "text-zinc-50" },
-      { "name": "Tailwind CSS", "colorClass": "text-teal-400" },
-      { "name": "Bootstrap", "colorClass": "text-purple-500" },
-      { "name": "Supabase", "colorClass": "text-emerald-500" },
-      { "name": "Firebase", "colorClass": "text-yellow-500" },
-      { "name": "C / C++", "colorClass": "text-blue-600" },
-      { "name": "DBMS", "colorClass": "text-zinc-300" },
-      { "name": "Computer Hardware & Maintenance", "colorClass": "text-zinc-400" },
-      { "name": "Microprocessor 8085", "colorClass": "text-zinc-500" },
-      { "name": "App Development Architecture", "colorClass": "text-purple-400" },
-      { "name": "Java", "colorClass": "text-red-500" },
-      { "name": "MongoDB", "colorClass": "text-green-500" },
-      { "name": "Python", "colorClass": "text-blue-400" },
-      { "name": "Node.js", "colorClass": "text-green-600" },
-      { "name": "Git", "colorClass": "text-orange-500" },
-      { "name": "Socket.io", "colorClass": "text-zinc-100" },
-      { "name": "Three.js (Learning)", "colorClass": "text-indigo-400" },
-      { "name": "Google Cloud / Ads", "colorClass": "text-blue-500" }
+    "title": "Skills & Tech Stack",
+    "categories": [
+      {
+        "category": "Frontend & Mobile",
+        "skills": [
+          { "name": "React", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+          { "name": "Next.js", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+          { "name": "TypeScript", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+          { "name": "JavaScript", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+          { "name": "Flutter", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" },
+          { "name": "Dart", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" },
+          { "name": "Kotlin", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" }
+        ]
+      },
+      {
+        "category": "Backend & APIs",
+        "skills": [
+          { "name": "Node.js", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+          { "name": "Python", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+          { "name": "FastAPI", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" },
+          { "name": "Flask", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" },
+          { "name": "Socket.io", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/socketio/socketio-original.svg" }
+        ]
+      },
+      {
+        "category": "Databases & Cloud",
+        "skills": [
+          { "name": "Supabase", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg" },
+          { "name": "MongoDB", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+          { "name": "Firebase", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" },
+          { "name": "Netlify", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netlify/netlify-original.svg" },
+          { "name": "Cloudflare", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cloudflare/cloudflare-original.svg" },
+          { "name": "Google Cloud", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" }
+        ]
+      },
+      {
+        "category": "Languages",
+        "skills": [
+          { "name": "C++", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" },
+          { "name": "C", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" },
+          { "name": "Java", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
+          { "name": "C#", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" }
+        ]
+      },
+      {
+        "category": "Design & Tools",
+        "skills": [
+          { "name": "Figma", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+          { "name": "Canva", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg" },
+          { "name": "Git", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" }
+        ]
+      }
     ]
   },
   "milestones": {
@@ -95,5 +129,72 @@
     { "name": "twitter", "url": "https://twitter.com" },
     { "name": "gmail", "url": "mailto:aaryan@example.com" },
     { "name": "number", "url": "tel:+1234567890" }
+  ],
+  "projects": [
+    {
+      "id": "pocket-desk",
+      "title": "PocketDesk",
+      "shortDescription": "Your offline-first, privacy-respecting productivity ecosystem built with Flutter.",
+      "bannerUrl": "https://raw.githubusercontent.com/Aaryanbanskota/Pocket-Desk/main/assets/repobanner.png",
+      "githubUrl": "https://github.com/Aaryanbanskota/Pocket-Desk",
+      "tags": ["Flutter", "Dart", "Android", "Linux", "Offline-First", "Cross-Platform"],
+      "license": "MIT",
+      "releases": [
+        {
+          "version": "v1.2.0 Final Release",
+          "tagName": "v1.2.0",
+          "apkUrl": "https://github.com/Aaryanbanskota/Pocket-Desk/raw/main/all-apk/app-release.apk",
+          "linuxUrl": "https://github.com/Aaryanbanskota/Pocket-Desk/blob/main/pocketdesk-linux-x64.tar.gz"
+        }
+      ],
+      "contributors": [
+        { "name": "Aaryanbanskota", "handle": "Aaryan", "github": "https://github.com/Aaryanbanskota", "avatar": "https://avatars.githubusercontent.com/u/213479755?v=4" },
+        { "name": "akashrai-dev-spec", "handle": "Akash Rai", "github": "https://github.com/akashrai-dev-spec", "avatar": "https://github.com/akashrai-dev-spec.png" },
+        { "name": "Copilot", "handle": "GitHub Copilot", "github": "https://github.com/features/copilot", "avatar": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2358A6FF'><path d='M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.167 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.53 1.03 1.53 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z'/></svg>" }
+      ],
+      "languages": [
+        { "name": "Dart", "percentage": "98.2%", "color": "#00B4AB" },
+        { "name": "C++", "percentage": "1.1%", "color": "#f34b7d" },
+        { "name": "CMake", "percentage": "0.7%", "color": "#DA5B0B" }
+      ],
+      "customReadme": "# 📱 PocketDesk\n\n**Your offline-first, privacy-respecting productivity ecosystem.**\n\nPocketDesk is a production-quality, offline-first productivity hub built with Flutter. It combines a full-featured **Calendar**, **Task Manager**, **Notes Ecosystem**, **Wallet Health**, and an **AI Companion** into a single, beautifully designed application — without requiring a cloud account or internet connection.\n\n> 🔒 **Privacy Guarantee**: You own 100% of your data. Everything runs locally on device storage. Internet connection is only utilized for local peer-to-peer device sync and optional AI integrations.\n\n---\n\n## ⚡ Core Feature Modules\n\n### ⏰ Clock & Timers Hub\n- **Native Alarms**: Full alarm system with custom labels, repeat schedules, enable/disable toggles, and local push notifications.\n- **Interactive Timers**: Countdown timer with quick duration chips (1m, 5m, 10m, 15m), custom duration pickers, and audio completion alerts.\n- **Stopwatch**: High-precision stopwatch built for split times and productivity sessions.\n\n### 📅 Calendar & Events\n- **Multi-View Engine**: Day, Week, Month, Year, and Agenda views.\n- **RFC 5545 Rules**: Native support for complex recurring events, color coding, and reminder notifications.\n- **ICS Import & Export**: Seamlessly import and export `.ics` calendar files offline.\n\n### 📝 Note Ecosystem & AI Notes\n- **Rich Note Editor**: Auto-saving rich notes with attachments, drawing canvas, code syntax blocks, and checklists.\n- **AI Formatting**: Instantly format, summarize, or clean up notes offline.\n\n### 💰 Money Health & Expense Manager\n- **Financial Breakdown**: Monthly expense tracking, starting balance vs. spending, and category percentage bars.\n- **AI Financial Score**: Automated Spending Score (out of 100) with custom savings advice quotes and targets.\n\n### 🤖 PocketDesk AI & Local Security\n- **AI Companion**: Integrated assistant powered by OpenRouter API with custom system prompts for 24/7 feature help.\n- **Security Recovery**: 2-step registration with Argon2id password hashing and recovery security questions.\n\n---\n\n## 🛠️ Platform Support & Specs\n\n| Platform | Status | Engine |\n|:---|:---:|:---|\n| **Android** (API 24+) | ✅ Supported | Flutter 3.24 + Isar NoSQL |\n| **Linux Desktop** | ✅ Supported | GTK3 + Native C++ Embedder |\n| **Windows / macOS** | 🔜 Planned | Cross-Platform Build Target |"
+    },
+    {
+      "id": "nagar-sampark",
+      "title": "Nagar Sampark",
+      "shortDescription": "Offline-first government IT directory & employee finder created during Government On-the-Job Training.",
+      "bannerUrl": "https://images.unsplash.com/photo-1577495508048-b635879837f1?q=80&w=1000&auto=format&fit=crop",
+      "githubUrl": "https://github.com/Aaryanbanskota/nagar-contact-data",
+      "dataUrl": "https://github.com/Aaryanbanskota/nagar-contact-data",
+      "isPrivateApp": true,
+      "tags": ["Mobile", "Offline Directory", "Government OJT", "JSON DB"],
+      "license": "MIT",
+      "contributors": [
+        { "name": "Aaryanbanskota", "handle": "Aaryan", "github": "https://github.com/Aaryanbanskota", "avatar": "https://avatars.githubusercontent.com/u/213479755?v=4" }
+      ],
+      "languages": [
+        { "name": "JSON / Dart", "percentage": "95.0%", "color": "#00B4AB" },
+        { "name": "Other", "percentage": "5.0%", "color": "#8B949E" }
+      ],
+      "customReadme": "# 🏛️ Nagar Sampark (नगर सम्पर्क)\n\n**Offline-First Public Government & Official Directory Application**\n\nDeveloped during my **Government On-the-Job Training (OJT)** internship, Nagar Sampark provides citizens and staff with instant, offline access to verified contact details for municipal employees, elected officials, emergency services, and public departments.\n\n> 💡 **Public Impact**: Created to eliminate communication bottlenecks in municipal government offices by making contact information accessible without relying on active internet connectivity.\n\n---\n\n## ⚡ Core Feature Highlights\n- 🇳🇵 **Bilingual Interface**: Seamlessly accessible in both **English & Nepali**.\n- ⚡ **100% Offline Access**: All directory records are pre-indexed and embedded locally for instant search without cellular data.\n- 🔍 **Smart Multi-Attribute Search**: Fast filtering by official name, designation, municipality ward, department, or phone extension.\n- 🔒 **Zero Telemetry**: Built with zero user tracking, zero advertisements, and no mandatory login accounts.\n\n---\n\n## 📂 Open-Source Public Dataset\nDue to government IT security guidelines, the application source code remains private. However, the structured public contact database is open-sourced:\n👉 [Explore Nagar Contact Data Repository](https://github.com/Aaryanbanskota/nagar-contact-data)"
+    },
+    {
+      "id": "bloom-terminal",
+      "title": "Bloom Terminal",
+      "shortDescription": "A sleek, customizable Python terminal suite & developer CLI tool.",
+      "bannerUrl": "https://raw.githubusercontent.com/Aaryanbanskota/Bloom-terminal/main/docs/bloom_banner.jpg",
+      "githubUrl": "https://github.com/Aaryanbanskota/Bloom-terminal",
+      "rawReadmeUrl": "https://raw.githubusercontent.com/Aaryanbanskota/Bloom-terminal/refs/heads/main/README.md",
+      "tags": ["Python", "CLI", "Terminal UI", "Open Source"],
+      "license": "MIT",
+      "contributors": [
+        { "name": "Aaryanbanskota", "handle": "Aaryan", "github": "https://github.com/Aaryanbanskota", "avatar": "https://avatars.githubusercontent.com/u/213479755?v=4" }
+      ],
+      "languages": [
+        { "name": "Python", "percentage": "96.7%", "color": "#3572A5" },
+        { "name": "Shell", "percentage": "3.3%", "color": "#89E051" }
+      ],
+      "customReadme": "# 🌸 Bloom Terminal\n\n**A sleek, customizable Python terminal suite & developer CLI workspace.**\n\nBloom Terminal elevates your command line workflow with aesthetic rich-text styling, ASCII banners, built-in system diagnostics, and developer automation tooling.\n\n---\n\n## ⚡ Key Highlights\n- 🎨 **Rich Terminal Aesthetics**: Color themes, customizable ASCII startup banners, and animated progress loaders.\n- ⚡ **Developer Suite**: Instant system health metrics, environment variable inspectors, and fast file utilities.\n- 🧩 **Modular Plugin System**: Write custom Python scripts to extend terminal commands effortlessly.\n\n---\n\n## 🚀 Quick Start\n```bash\n# 1. Clone repo\ngit clone https://github.com/Aaryanbanskota/Bloom-terminal.git\ncd Bloom-terminal\n\n# 2. Run Terminal Suite\npython3 main.py\n```"
+    }
   ]
 }
