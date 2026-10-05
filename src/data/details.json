@@ -167,7 +167,18 @@
         }
       ],
       "contributors": [
-        { "name": "Aaryan Banskota", "github": "https://github.com/Aaryanbanskota", "avatar": "https://avatars.githubusercontent.com/u/213479755?v=4" }
+        { "name": "Aaryanbanskota", "handle": "Aaryan", "github": "https://github.com/Aaryanbanskota", "avatar": "https://avatars.githubusercontent.com/u/213479755?v=4" },
+        { "name": "akashrai-dev-spec", "handle": "akashrai.dev", "github": "https://github.com/akashrai-dev-spec", "avatar": "https://avatars.githubusercontent.com/u/257935082?v=4" },
+        { "name": "Copilot", "handle": "AI Assistant", "github": "https://github.com/features/copilot", "avatar": "https://github.githubassets.com/assets/copilot-c02058.png" }
+      ],
+      "languages": [
+        { "name": "Dart", "percentage": "89.8%", "color": "#00B4AB" },
+        { "name": "HTML", "percentage": "6.4%", "color": "#E34F26" },
+        { "name": "CSS", "percentage": "2.2%", "color": "#563D7C" },
+        { "name": "CMake", "percentage": "0.6%", "color": "#DA5B0B" },
+        { "name": "C++", "percentage": "0.4%", "color": "#F34B7D" },
+        { "name": "JavaScript", "percentage": "0.4%", "color": "#F1E05A" },
+        { "name": "Other", "percentage": "0.2%", "color": "#8B949E" }
       ]
     },
     {
@@ -181,7 +192,11 @@
       "tags": ["Mobile", "Offline Directory", "Government OJT", "JSON DB"],
       "license": "MIT",
       "contributors": [
-        { "name": "Aaryan Banskota", "github": "https://github.com/Aaryanbanskota", "avatar": "https://avatars.githubusercontent.com/u/213479755?v=4" }
+        { "name": "Aaryanbanskota", "handle": "Aaryan", "github": "https://github.com/Aaryanbanskota", "avatar": "https://avatars.githubusercontent.com/u/213479755?v=4" }
+      ],
+      "languages": [
+        { "name": "JSON / Dart", "percentage": "95.0%", "color": "#00B4AB" },
+        { "name": "Other", "percentage": "5.0%", "color": "#8B949E" }
       ],
       "customReadme": "# 🏛️ Nagar Sampark (नगर सम्पर्क)\n\n**Offline-First Public Government & Official Directory Application**\n\nNagar Sampark was built during my **Government On-the-Job Training (OJT)** internship. It provides citizens with instant, offline access to verified contact details of municipal employees, elected officials, and public service departments.\n\n---\n\n## 🌟 Key Highlights\n- 🇳🇵 **Bilingual Interface**: Designed for seamless accessibility in both **English & Nepali**.\n- ⚡ **Offline-First & Ultra Fast**: All contact data is embedded locally for instant search without active internet.\n- 🔍 **Smart Quick Search**: Easily locate municipal officers, phone numbers, email addresses, and office hours.\n- 🔒 **Privacy Focused**: No user data collection, tracking, or cloud logins required.\n\n---\n\n## 📂 Public Contact Data Repository\nDue to government security policies, the application codebase remains private; however, the **public directory dataset** used by the app is open-source and available here:\n👉 [Nagar Contact Data Repository](https://github.com/Aaryanbanskota/nagar-contact-data)\n"
     },
@@ -195,7 +210,11 @@
       "tags": ["Python", "CLI", "Terminal UI", "Open Source"],
       "license": "MIT",
       "contributors": [
-        { "name": "Aaryan Banskota", "github": "https://github.com/Aaryanbanskota", "avatar": "https://avatars.githubusercontent.com/u/213479755?v=4" }
+        { "name": "Aaryanbanskota", "handle": "Aaryan", "github": "https://github.com/Aaryanbanskota", "avatar": "https://avatars.githubusercontent.com/u/213479755?v=4" }
+      ],
+      "languages": [
+        { "name": "Python", "percentage": "96.7%", "color": "#3572A5" },
+        { "name": "Shell", "percentage": "3.3%", "color": "#89E051" }
       ]
     }
   ]
