@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { AnimatedCard, AnimatedText } from '@/components/layout/AnimatedCard';
 import details from '@/data/details.json';
 
-export default function LandingPage() {
+export default function LandingPage({ isPreloaderDone = true }) {
   const [activeId, setActiveId] = useState(null);
 
   return (
@@ -13,7 +13,7 @@ export default function LandingPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-[auto_auto_auto] gap-6 h-full">
 
           {/* 1. Who Am I Box */}
-          <AnimatedCard layoutId="who-am-i" onClick={() => setActiveId('who-am-i')} startX={-150} startY={-150} className="md:col-span-2" cardClassName="p-8 justify-center">
+          <AnimatedCard isReady={isPreloaderDone} layoutId="who-am-i" onClick={() => setActiveId('who-am-i')} startX={-150} startY={-150} className="md:col-span-2" cardClassName="p-8 justify-center">
             <AnimatedText className="text-xl md:text-2xl font-light text-zinc-400 mb-2">{details.profile.title}</AnimatedText>
             <AnimatedText className="text-2xl md:text-3xl font-medium leading-relaxed drop-shadow-sm text-zinc-300">
                I am <span className="text-indigo-400 font-semibold">{details.profile.name}</span>, an 18-year-old developer with 4 years of coding experience and a proven track record in engineering and innovation.
@@ -21,7 +21,7 @@ export default function LandingPage() {
           </AnimatedCard>
 
           {/* 2. Samurai Main Image Box (Hero) */}
-          <AnimatedCard layoutId="hero" className="md:col-span-1 md:row-span-2" startX={150} startY={-150} cardClassName="p-0 relative group overflow-hidden flex flex-col items-center text-center justify-end border-zinc-800">
+          <AnimatedCard isReady={isPreloaderDone} layoutId="hero" className="md:col-span-1 md:row-span-2" startX={150} startY={-150} cardClassName="p-0 relative group overflow-hidden flex flex-col items-center text-center justify-end border-zinc-800">
             <AnimatedText className="absolute inset-0 flex items-center justify-center -z-10">
                <img 
                  src={details.hero.imageUrl} 
@@ -38,7 +38,7 @@ export default function LandingPage() {
           </AnimatedCard>
 
           {/* 3. Skills Box */}
-          <AnimatedCard layoutId="skills" onClick={() => setActiveId('skills')} startX={-150} startY={0} className="md:col-span-1 border-emerald-900/30" cardClassName="p-8 justify-center">
+          <AnimatedCard isReady={isPreloaderDone} layoutId="skills" onClick={() => setActiveId('skills')} startX={-150} startY={0} className="md:col-span-1 border-emerald-900/30" cardClassName="p-8 justify-center">
             <AnimatedText className="text-xl font-light text-zinc-400 mb-6">{details.skills.title}</AnimatedText>
             <div className="flex flex-wrap gap-2 text-sm font-medium">
               {details.skills.categories.flatMap(c => c.skills).slice(0, 6).map((skill, i) => (
@@ -54,7 +54,7 @@ export default function LandingPage() {
           </AnimatedCard>
 
           {/* 4. GitHub Profile Box */}
-          <AnimatedCard layoutId="profile" onClick={() => setActiveId('profile')} startX={0} startY={150} className="md:col-span-1" cardClassName="p-8 flex items-center justify-center group overflow-hidden relative">
+          <AnimatedCard isReady={isPreloaderDone} layoutId="profile" onClick={() => setActiveId('profile')} startX={0} startY={150} className="md:col-span-1" cardClassName="p-8 flex items-center justify-center group overflow-hidden relative">
             <div className="absolute inset-x-0 -top-px h-px w-full bg-gradient-to-r from-transparent via-blue-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
             <div className="flex flex-col items-center gap-6 z-10 pointer-events-none">
               <AnimatedText className="relative w-28 h-28 rounded-full border-[3px] border-zinc-700 shadow-[0_0_20px_rgba(0,0,0,0.5)] overflow-hidden group-hover:border-blue-500 transition-colors duration-500">
@@ -67,7 +67,7 @@ export default function LandingPage() {
           </AnimatedCard>
 
           {/* 5. Milestones Box */}
-          <AnimatedCard layoutId="milestones" onClick={() => setActiveId('milestones')} startX={-150} startY={150} className="md:col-span-1" cardClassName="p-8 justify-center">
+          <AnimatedCard isReady={isPreloaderDone} layoutId="milestones" onClick={() => setActiveId('milestones')} startX={-150} startY={150} className="md:col-span-1" cardClassName="p-8 justify-center">
             <AnimatedText className="flex items-center justify-between mb-4">
               <span className="text-xl font-light text-zinc-400">{details.milestones.title}</span>
               <span className="text-xs px-2.5 py-0.5 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 font-semibold">
@@ -99,7 +99,7 @@ export default function LandingPage() {
           </AnimatedCard>
 
           {/* 6. Description Box */}
-          <AnimatedCard layoutId="desc" startX={150} startY={150} className="md:col-span-2" cardClassName="p-8 justify-center relative shadow-inner">
+          <AnimatedCard isReady={isPreloaderDone} layoutId="desc" startX={150} startY={150} className="md:col-span-2" cardClassName="p-8 justify-center relative shadow-inner">
             <div className="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-indigo-500 to-emerald-500 rounded-l-3xl opacity-50" />
             <AnimatedText className="text-lg md:text-xl font-light leading-relaxed text-zinc-300 space-y-4">
               {details.description.paragraphs.map((p, i) => (
