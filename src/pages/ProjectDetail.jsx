@@ -8,55 +8,55 @@ import rehypeRaw from 'rehype-raw';
 
 const markdownComponents = {
   h1: ({ children }) => (
-    <h1 className="text-2xl md:text-3xl font-black text-white mt-6 mb-4 pb-3 border-b border-zinc-800 flex items-center gap-2">
+    <h1 className="text-2xl md:text-3xl font-black dark:text-white text-slate-900 mt-6 mb-4 pb-3 border-b dark:border-zinc-800 border-slate-200 flex items-center gap-2">
       {children}
     </h1>
   ),
   h2: ({ children }) => (
-    <h2 className="text-xl md:text-2xl font-bold text-zinc-100 mt-8 mb-4 pb-2 border-b border-zinc-800/60 flex items-center gap-2">
+    <h2 className="text-xl md:text-2xl font-bold dark:text-zinc-100 text-slate-800 mt-8 mb-4 pb-2 border-b dark:border-zinc-800/60 border-slate-200 flex items-center gap-2">
       {children}
     </h2>
   ),
   h3: ({ children }) => (
-    <h3 className="text-lg font-semibold text-indigo-300 mt-6 mb-3">
+    <h3 className="text-lg font-semibold dark:text-indigo-300 text-indigo-600 mt-6 mb-3">
       {children}
     </h3>
   ),
   p: ({ children }) => (
-    <p className="text-base text-zinc-300 leading-relaxed my-4 font-normal">
+    <p className="text-base dark:text-zinc-300 text-slate-700 leading-relaxed my-4 font-normal">
       {children}
     </p>
   ),
   ul: ({ children }) => (
-    <ul className="list-disc list-outside space-y-2.5 my-4 pl-6 text-zinc-300">
+    <ul className="list-disc list-outside space-y-2.5 my-4 pl-6 dark:text-zinc-300 text-slate-700">
       {children}
     </ul>
   ),
   ol: ({ children }) => (
-    <ol className="list-decimal list-outside space-y-2.5 my-4 pl-6 text-zinc-300">
+    <ol className="list-decimal list-outside space-y-2.5 my-4 pl-6 dark:text-zinc-300 text-slate-700">
       {children}
     </ol>
   ),
   li: ({ children }) => (
-    <li className="pl-1 leading-relaxed text-zinc-300">
+    <li className="pl-1 leading-relaxed dark:text-zinc-300 text-slate-700">
       {children}
     </li>
   ),
   blockquote: ({ children }) => (
-    <blockquote className="border-l-4 border-indigo-500 bg-indigo-950/30 px-5 py-4 my-6 rounded-r-xl text-indigo-200 italic font-medium border-y border-r border-indigo-500/20 shadow-sm">
+    <blockquote className="border-l-4 border-indigo-500 dark:bg-indigo-950/30 bg-indigo-50 px-5 py-4 my-6 rounded-r-xl dark:text-indigo-200 text-indigo-900 italic font-medium border-y border-r dark:border-indigo-500/20 border-indigo-200 shadow-sm">
       {children}
     </blockquote>
   ),
   code: ({ inline, children }) => {
     if (inline) {
       return (
-        <code className="px-2 py-0.5 rounded bg-zinc-800 text-indigo-300 text-sm font-mono border border-zinc-700/60">
+        <code className="px-2 py-0.5 rounded dark:bg-zinc-800 bg-slate-100 dark:text-indigo-300 text-indigo-700 text-sm font-mono border dark:border-zinc-700/60 border-slate-200">
           {children}
         </code>
       );
     }
     return (
-      <code className="block p-4 rounded-xl bg-zinc-950 text-emerald-400 font-mono text-sm overflow-x-auto my-4 border border-zinc-800 shadow-inner">
+      <code className="block p-4 rounded-xl dark:bg-zinc-950 bg-slate-900 dark:text-emerald-400 text-emerald-300 font-mono text-sm overflow-x-auto my-4 border dark:border-zinc-800 border-slate-800 shadow-inner">
         {children}
       </code>
     );
@@ -67,37 +67,37 @@ const markdownComponents = {
     </pre>
   ),
   hr: () => (
-    <hr className="my-8 border-t border-zinc-800" />
+    <hr className="my-8 border-t dark:border-zinc-800 border-slate-200" />
   ),
   a: ({ href, children }) => (
-    <a href={href} target="_blank" rel="noreferrer" className="text-indigo-400 hover:text-indigo-300 underline font-medium transition-colors">
+    <a href={href} target="_blank" rel="noreferrer" className="dark:text-indigo-400 text-indigo-600 hover:underline font-medium transition-colors">
       {children}
     </a>
   ),
   table: ({ children }) => (
-    <div className="overflow-x-auto my-6 rounded-xl border border-zinc-800">
-      <table className="w-full text-left border-collapse text-sm text-zinc-300">
+    <div className="overflow-x-auto my-6 rounded-xl border dark:border-zinc-800 border-slate-200">
+      <table className="w-full text-left border-collapse text-sm dark:text-zinc-300 text-slate-700">
         {children}
       </table>
     </div>
   ),
   thead: ({ children }) => (
-    <thead className="bg-zinc-900/90 text-zinc-100 font-semibold border-b border-zinc-800">
+    <thead className="dark:bg-zinc-900/90 bg-slate-100 dark:text-zinc-100 text-slate-900 font-semibold border-b dark:border-zinc-800 border-slate-200">
       {children}
     </thead>
   ),
   th: ({ children }) => (
-    <th className="p-3 border-r border-zinc-800 last:border-r-0 font-semibold">
+    <th className="p-3 border-r dark:border-zinc-800 border-slate-200 last:border-r-0 font-semibold">
       {children}
     </th>
   ),
   td: ({ children }) => (
-    <td className="p-3 border-b border-r border-zinc-800/60 last:border-r-0 bg-zinc-950/40">
+    <td className="p-3 border-b border-r dark:border-zinc-800/60 border-slate-200 last:border-r-0 dark:bg-zinc-950/40 bg-white">
       {children}
     </td>
   ),
   img: ({ src, alt }) => (
-    <img src={src} alt={alt} className="rounded-xl border border-zinc-800 my-4 max-w-full h-auto shadow-md" />
+    <img src={src} alt={alt} className="rounded-xl border dark:border-zinc-800 border-slate-200 my-4 max-w-full h-auto shadow-md" />
   ),
 };
 
@@ -151,7 +151,7 @@ export default function ProjectDetail() {
       <div className="flex items-center justify-between">
         <button 
           onClick={() => navigate('/projects')}
-          className="flex items-center gap-2 px-4 py-2 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-zinc-700 text-zinc-300 hover:text-white transition-all text-sm font-medium shadow-sm group"
+          className="flex items-center gap-2 px-4 py-2 rounded-xl dark:bg-zinc-900 bg-white border dark:border-zinc-800 border-slate-200 hover:dark:border-zinc-700 hover:border-slate-300 dark:text-zinc-300 text-slate-700 hover:dark:text-white hover:text-slate-900 transition-all text-sm font-medium shadow-sm group"
         >
           <span className="group-hover:-translate-x-1 transition-transform">←</span> Back to Projects
         </button>
@@ -160,7 +160,7 @@ export default function ProjectDetail() {
           href={project.githubUrl} 
           target="_blank" 
           rel="noreferrer"
-          className="flex items-center gap-2 px-4 py-2 rounded-xl bg-indigo-600/20 border border-indigo-500/40 hover:bg-indigo-600/30 text-indigo-300 hover:text-white transition-all text-xs md:text-sm font-semibold shadow-md"
+          className="flex items-center gap-2 px-4 py-2 rounded-xl dark:bg-indigo-600/20 bg-indigo-50 border dark:border-indigo-500/40 border-indigo-200 hover:dark:bg-indigo-600/30 hover:bg-indigo-100 dark:text-indigo-300 text-indigo-700 transition-all text-xs md:text-sm font-semibold shadow-sm"
         >
           <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
           View Code on GitHub ↗
@@ -168,15 +168,15 @@ export default function ProjectDetail() {
       </div>
 
       {/* Main Banner Header */}
-      <div className="rounded-3xl overflow-hidden border border-zinc-800 bg-zinc-900 shadow-2xl relative">
+      <div className="rounded-3xl overflow-hidden border dark:border-zinc-800 border-slate-200 dark:bg-zinc-900 bg-white shadow-xl relative">
         <img src={project.bannerUrl} alt={project.title} className="w-full h-auto max-h-96 object-cover" />
-        <div className="p-6 md:p-8 bg-zinc-950/90 border-t border-zinc-800/80 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div className="p-6 md:p-8 dark:bg-zinc-950/90 bg-white/95 border-t dark:border-zinc-800/80 border-slate-200 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
-            <h1 className="text-3xl md:text-4xl font-black text-white">{project.title}</h1>
-            <p className="text-zinc-400 text-base mt-1 font-light">{project.shortDescription}</p>
+            <h1 className="text-3xl md:text-4xl font-black dark:text-white text-slate-900">{project.title}</h1>
+            <p className="dark:text-zinc-400 text-slate-600 text-base mt-1 font-light">{project.shortDescription}</p>
           </div>
           <div className="flex flex-wrap gap-2 items-center">
-            <span className="text-xs px-3 py-1 rounded-full bg-indigo-950 border border-indigo-800 text-indigo-300 font-semibold">
+            <span className="text-xs px-3 py-1 rounded-full dark:bg-indigo-950 bg-indigo-50 border dark:border-indigo-800 border-indigo-200 dark:text-indigo-300 text-indigo-700 font-semibold">
               License: {project.license}
             </span>
           </div>
@@ -187,16 +187,16 @@ export default function ProjectDetail() {
       <div className="grid grid-cols-1 lg:grid-cols-10 gap-8 items-start">
         
         {/* LEFT COLUMN: README Documentation (7 Columns) */}
-        <div className="lg:col-span-7 p-6 md:p-8 rounded-3xl bg-zinc-900/40 border border-zinc-800/80 shadow-lg space-y-6 overflow-hidden">
-          <div className="flex items-center justify-between border-b border-zinc-800 pb-4">
-            <h3 className="text-xl font-bold text-zinc-100 flex items-center gap-2">
+        <div className="lg:col-span-7 p-6 md:p-8 rounded-3xl dark:bg-zinc-900/40 bg-white border dark:border-zinc-800/80 border-slate-200 shadow-md space-y-6 overflow-hidden">
+          <div className="flex items-center justify-between border-b dark:border-zinc-800 border-slate-200 pb-4">
+            <h3 className="text-xl font-bold dark:text-zinc-100 text-slate-900 flex items-center gap-2">
               <span>📖</span> README.md
             </h3>
           </div>
           
-          <div className="text-zinc-300 font-normal leading-relaxed">
+          <div className="dark:text-zinc-300 text-slate-700 font-normal leading-relaxed">
             {loading && !activeReadme ? (
-              <div className="py-12 text-center text-zinc-500 font-medium">Loading documentation...</div>
+              <div className="py-12 text-center dark:text-zinc-500 text-slate-400 font-medium">Loading documentation...</div>
             ) : (
               <ReactMarkdown 
                 remarkPlugins={[remarkGfm]} 
@@ -214,11 +214,11 @@ export default function ProjectDetail() {
           
           {/* 1. GitHub Releases Box */}
           {project.releases && project.releases.length > 0 && (
-            <div className="p-6 rounded-3xl bg-zinc-900/60 border border-zinc-800/90 shadow-lg space-y-4">
-              <div className="flex items-center justify-between border-b border-zinc-800 pb-3">
-                <h4 className="text-base font-bold text-zinc-100 flex items-center gap-2">
+            <div className="p-6 rounded-3xl dark:bg-zinc-900/60 bg-white border dark:border-zinc-800/90 border-slate-200 shadow-md space-y-4">
+              <div className="flex items-center justify-between border-b dark:border-zinc-800 border-slate-200 pb-3">
+                <h4 className="text-base font-bold dark:text-zinc-100 text-slate-900 flex items-center gap-2">
                   <span>Releases</span>
-                  <span className="px-2 py-0.5 rounded-full bg-zinc-800 text-zinc-300 text-xs font-semibold">
+                  <span className="px-2 py-0.5 rounded-full dark:bg-zinc-800 bg-slate-100 dark:text-zinc-300 text-slate-700 text-xs font-semibold">
                     {project.releases.length}
                   </span>
                 </h4>
@@ -227,13 +227,13 @@ export default function ProjectDetail() {
               {/* Latest Release */}
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
-                  <span className="text-emerald-400">🏷️</span>
-                  <span className="font-bold text-zinc-100 text-sm">{project.releases[0].name}</span>
-                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-400 border border-emerald-800 font-semibold">
+                  <span className="text-emerald-500">🏷️</span>
+                  <span className="font-bold dark:text-zinc-100 text-slate-900 text-sm">{project.releases[0].name}</span>
+                  <span className="text-[10px] px-2 py-0.5 rounded-full dark:bg-emerald-950 bg-emerald-50 text-emerald-600 dark:text-emerald-400 border dark:border-emerald-800 border-emerald-200 font-semibold">
                     Latest
                   </span>
                 </div>
-                <div className="text-xs text-zinc-500 pl-6">
+                <div className="text-xs dark:text-zinc-500 text-slate-500 pl-6">
                   Published {project.releases[0].publishedAt} • {project.releases[0].size}
                 </div>
                 <div className="pl-6 pt-1">
@@ -241,7 +241,7 @@ export default function ProjectDetail() {
                     href={project.releases[0].downloadUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs text-indigo-400 hover:text-indigo-300 font-medium hover:underline"
+                    className="inline-flex items-center gap-1.5 text-xs text-indigo-600 dark:text-indigo-400 hover:underline font-medium"
                   >
                     <span>📥</span> Download {project.releases[0].fileName}
                   </a>
@@ -250,17 +250,17 @@ export default function ProjectDetail() {
 
               {/* Other Releases List */}
               {project.releases.length > 1 && (
-                <div className="pt-2 border-t border-zinc-800/80 space-y-2">
-                  <span className="text-xs text-zinc-400 font-medium">Previous Releases:</span>
+                <div className="pt-2 border-t dark:border-zinc-800/80 border-slate-200 space-y-2">
+                  <span className="text-xs dark:text-zinc-400 text-slate-500 font-medium">Previous Releases:</span>
                   <div className="space-y-2">
                     {project.releases.slice(1).map((rel, rIdx) => (
                       <div key={rIdx} className="flex items-center justify-between text-xs pl-2">
-                        <span className="text-zinc-300 font-medium">{rel.name}</span>
+                        <span className="dark:text-zinc-300 text-slate-700 font-medium">{rel.name}</span>
                         <a 
                           href={rel.downloadUrl}
                           target="_blank"
                           rel="noreferrer"
-                          className="text-indigo-400 hover:underline text-[11px]"
+                          className="text-indigo-600 dark:text-indigo-400 hover:underline text-[11px]"
                         >
                           Download APK ↗
                         </a>
@@ -274,11 +274,11 @@ export default function ProjectDetail() {
 
           {/* 2. Contributors Box */}
           {project.contributors && project.contributors.length > 0 && (
-            <div className="p-6 rounded-3xl bg-zinc-900/60 border border-zinc-800/90 shadow-lg space-y-4">
-              <div className="flex items-center justify-between border-b border-zinc-800 pb-3">
-                <h4 className="text-base font-bold text-zinc-100 flex items-center gap-2">
+            <div className="p-6 rounded-3xl dark:bg-zinc-900/60 bg-white border dark:border-zinc-800/90 border-slate-200 shadow-md space-y-4">
+              <div className="flex items-center justify-between border-b dark:border-zinc-800 border-slate-200 pb-3">
+                <h4 className="text-base font-bold dark:text-zinc-100 text-slate-900 flex items-center gap-2">
                   <span>Contributors</span>
-                  <span className="px-2 py-0.5 rounded-full bg-zinc-800 text-zinc-300 text-xs font-semibold">
+                  <span className="px-2 py-0.5 rounded-full dark:bg-zinc-800 bg-slate-100 dark:text-zinc-300 text-slate-700 text-xs font-semibold">
                     {project.contributors.length}
                   </span>
                 </h4>
@@ -291,12 +291,12 @@ export default function ProjectDetail() {
                     href={contrib.github} 
                     target="_blank" 
                     rel="noreferrer"
-                    className="flex items-center gap-3 p-2 rounded-xl bg-zinc-900/80 border border-zinc-800 hover:border-indigo-500/50 transition-all group"
+                    className="flex items-center gap-3 p-2 rounded-xl dark:bg-zinc-900/80 bg-slate-50 border dark:border-zinc-800 border-slate-200 hover:border-indigo-400 transition-all group"
                   >
-                    <img src={contrib.avatar} alt={contrib.name} className="w-8 h-8 rounded-full border border-zinc-700 group-hover:border-indigo-500" />
+                    <img src={contrib.avatar} alt={contrib.name} className="w-8 h-8 rounded-full border dark:border-zinc-700 border-slate-300 group-hover:border-indigo-500" />
                     <div className="flex flex-col">
-                      <span className="text-sm font-semibold text-zinc-200 group-hover:text-indigo-400 transition-colors">{contrib.name}</span>
-                      <span className="text-xs text-zinc-500">{contrib.handle}</span>
+                      <span className="text-sm font-semibold dark:text-zinc-200 text-slate-800 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">{contrib.name}</span>
+                      <span className="text-xs dark:text-zinc-500 text-slate-500">{contrib.handle}</span>
                     </div>
                   </a>
                 ))}
@@ -306,13 +306,13 @@ export default function ProjectDetail() {
 
           {/* 3. Languages Breakdown Box */}
           {project.languages && project.languages.length > 0 && (
-            <div className="p-6 rounded-3xl bg-zinc-900/60 border border-zinc-800/90 shadow-lg space-y-4">
-              <div className="border-b border-zinc-800 pb-3">
-                <h4 className="text-base font-bold text-zinc-100">Languages</h4>
+            <div className="p-6 rounded-3xl dark:bg-zinc-900/60 bg-white border dark:border-zinc-800/90 border-slate-200 shadow-md space-y-4">
+              <div className="border-b dark:border-zinc-800 border-slate-200 pb-3">
+                <h4 className="text-base font-bold dark:text-zinc-100 text-slate-900">Languages</h4>
               </div>
 
               {/* Progress Color Bar */}
-              <div className="w-full h-2.5 rounded-full bg-zinc-800 flex overflow-hidden">
+              <div className="w-full h-2.5 rounded-full dark:bg-zinc-800 bg-slate-200 flex overflow-hidden">
                 {project.languages.map((lang, lIdx) => (
                   <div 
                     key={lIdx} 
@@ -326,10 +326,10 @@ export default function ProjectDetail() {
               {/* Language Percentage Legend */}
               <div className="grid grid-cols-2 gap-2 pt-1 text-xs">
                 {project.languages.map((lang, lIdx) => (
-                  <div key={lIdx} className="flex items-center gap-2 text-zinc-300">
+                  <div key={lIdx} className="flex items-center gap-2 dark:text-zinc-300 text-slate-700">
                     <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: lang.color }} />
-                    <span className="font-medium text-zinc-200">{lang.name}</span>
-                    <span className="text-zinc-500 text-[11px]">{lang.percentage}</span>
+                    <span className="font-medium dark:text-zinc-200 text-slate-800">{lang.name}</span>
+                    <span className="dark:text-zinc-500 text-slate-500 text-[11px]">{lang.percentage}</span>
                   </div>
                 ))}
               </div>
