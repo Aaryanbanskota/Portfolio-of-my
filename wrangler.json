@@ -1,11 +1,8 @@
 {
-  "name": "portfolio",
-  "compatibility_date": "2026-10-05",
-  "pages_build_output_dir": "./dist",
+  "name": "aaryanbanskota",
+  "compatibility_date": "2026-09-05",
   "assets": {
-    "directory": "./dist"
-  },
-  "observability": {
-    "enabled": false
+    "directory": "./dist",
+    "not_found_handling": "single-page-application"
   }
 }
