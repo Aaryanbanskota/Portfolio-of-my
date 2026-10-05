@@ -169,7 +169,7 @@
       "contributors": [
         { "name": "Aaryanbanskota", "handle": "Aaryan", "github": "https://github.com/Aaryanbanskota", "avatar": "https://avatars.githubusercontent.com/u/213479755?v=4" },
         { "name": "akashrai-dev-spec", "handle": "akashrai.dev", "github": "https://github.com/akashrai-dev-spec", "avatar": "https://avatars.githubusercontent.com/u/257935082?v=4" },
-        { "name": "Copilot", "handle": "AI Assistant", "github": "https://github.com/features/copilot", "avatar": "https://github.githubassets.com/assets/copilot-c02058.png" }
+        { "name": "Copilot", "handle": "AI Assistant", "github": "https://github.com/features/copilot", "avatar": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white' bg='black'><circle cx='12' cy='12' r='12' fill='%23161b22'/><path d='M12 6a4 4 0 00-4 4v.5a.5.5 0 001 0V10a3 3 0 116 0v.5a.5.5 0 001 0V10a4 4 0 00-4-4zm-5 6a1 1 0 00-1 1v3a3 3 0 003 3h6a3 3 0 003-3v-3a1 1 0 00-1-1H7zm2 2h6a1 1 0 011 1v1a1 1 0 01-1 1H9a1 1 0 01-1-1v-1a1 1 0 011-1z' fill='%23ffffff'/></svg>" }
       ],
       "languages": [
         { "name": "Dart", "percentage": "89.8%", "color": "#00B4AB" },

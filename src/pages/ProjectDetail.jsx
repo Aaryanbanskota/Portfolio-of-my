@@ -4,6 +4,8 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import details from '@/data/details.json';
 
+import rehypeRaw from 'rehype-raw';
+
 export default function ProjectDetail() {
   const { projectId } = useParams();
   const navigate = useNavigate();
@@ -90,19 +92,18 @@ export default function ProjectDetail() {
       <div className="grid grid-cols-1 lg:grid-cols-10 gap-8 items-start">
         
         {/* LEFT COLUMN: README Documentation (7 Columns) */}
-        <div className="lg:col-span-7 p-6 md:p-10 rounded-3xl bg-zinc-900/40 border border-zinc-800/80 shadow-lg space-y-6">
+        <div className="lg:col-span-7 p-4 md:p-8 rounded-3xl bg-zinc-900/40 border border-zinc-800/80 shadow-lg space-y-6 overflow-hidden">
           <div className="flex items-center justify-between border-b border-zinc-800 pb-4">
             <h3 className="text-xl font-bold text-zinc-100 flex items-center gap-2">
               <span>📖</span> README.md
             </h3>
-            <span className="text-xs text-zinc-500 font-mono">raw</span>
           </div>
           
-          <div className="prose prose-invert max-w-none prose-indigo leading-relaxed text-zinc-300 font-light">
+          <div className="prose prose-invert max-w-none prose-indigo leading-relaxed text-zinc-300 font-light overflow-x-auto">
             {loading && !activeReadme ? (
               <div className="py-12 text-center text-zinc-500 font-medium">Loading documentation...</div>
             ) : (
-              <ReactMarkdown remarkPlugins={[remarkGfm]}>
+              <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
                 {activeReadme}
               </ReactMarkdown>
             )}
