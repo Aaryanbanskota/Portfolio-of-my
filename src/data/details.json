@@ -102,64 +102,64 @@
     "title": "Milestones",
     "items": [
       {
-        "id": "started-coding",
-        "title": "Started Coding Journey",
-        "description": "Began self-taught programming 4 years ago, building low-level & full-stack applications.",
-        "status": "Beginning",
-        "badge": "🚀 Started",
-        "imageUrl": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop",
-        "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
-        "url": "https://github.com/Aaryanbanskota"
+        "id": "first-project-report-card-creator",
+        "title": "1st Project: Report Card Creator",
+        "description": "Built my first web application in pure HTML, inline CSS, and JavaScript for generating dynamic student report cards.",
+        "status": "First Step",
+        "badge": "First Project",
+        "blogId": "first-project-report-card-creator",
+        "imageUrl": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=800&auto=format&fit=crop",
+        "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
       },
       {
-        "id": "govt-ojt-1",
-        "title": "1st Government OJT",
-        "description": "Selected for On-the-Job Training assisting with municipal IT systems & public directories.",
+        "id": "1st-ojt-it-hardware-networking",
+        "title": "1st OJT: IT Head Helper",
+        "description": "Worked as helper to the IT Head, managing PC hardware assembly, LAN cabling, router setups, and system diagnostics.",
         "status": "Completed",
-        "badge": "🏛️ Govt OJT",
-        "imageUrl": "https://images.unsplash.com/photo-1577495508048-b635879837f1?q=80&w=800&auto=format&fit=crop",
-        "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
-        "url": "https://github.com/Aaryanbanskota/nagar-contact-data"
+        "badge": "1st OJT",
+        "blogId": "1st-ojt-it-hardware-networking",
+        "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=800&auto=format&fit=crop",
+        "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg"
       },
       {
-        "id": "godawari-hacks",
-        "title": "Godawari Hacks 2025",
-        "description": "Won 1st Place 🏆 at Godawari Hacks for engineering a scalable offline-first productivity platform.",
-        "status": "Winner 🏆",
-        "badge": "🏆 Winner",
-        "imageUrl": "https://hack.godawari.edu.np/_next/image?url=%2Flogo-godawari-hacks-nobg.png&w=256&q=75",
-        "logoUrl": "https://hack.godawari.edu.np/_next/image?url=%2Flogo-godawari-hacks-nobg.png&w=256&q=75",
-        "url": "https://hack.godawari.edu.np/"
-      },
-      {
-        "id": "mbmc-webathon",
-        "title": "MBMC Webathon",
-        "description": "Participated in the web development hackathon at Madan Bhandari Memorial College (MBMC).",
-        "status": "Participant",
-        "badge": "💻 Participant",
-        "imageUrl": "https://www.mbmc.edu.np/assets/site/img/mbmc.svg",
-        "logoUrl": "https://www.mbmc.edu.np/assets/site/img/mbmc.svg",
-        "url": "https://www.mbmc.edu.np/"
-      },
-      {
-        "id": "govt-ojt-2",
-        "title": "2nd Government OJT",
-        "description": "Advanced On-the-Job Training expanding government IT architecture and offline tools.",
+        "id": "2nd-ojt-mobile-app-development",
+        "title": "2nd OJT: Mobile App Engineering",
+        "description": "Advanced On-the-Job Training building full-stack mobile applications, UI architecture, and offline data systems.",
         "status": "Completed",
-        "badge": "🏛️ Govt OJT #2",
+        "badge": "2nd OJT",
+        "blogId": "2nd-ojt-mobile-app-development",
         "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
-        "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
-        "url": "https://github.com/Aaryanbanskota"
+        "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg"
       },
       {
-        "id": "wcbt-hackathon",
-        "title": "WCBT Hackathon",
-        "description": "Participated in WCBT Hackathon showcasing rapid prototyping and software engineering.",
-        "status": "Participant",
-        "badge": "⚔️ Participant",
+        "id": "godawari-hacks-afnocare",
+        "title": "Godawari Hacks: AfnoCare",
+        "description": "Won 1st Place 🏆 for AfnoCare—an anonymous sexual health discussion portal with AI doctor matching.",
+        "status": "Winner 🏆",
+        "badge": "Winner 🏆",
+        "blogId": "godawari-hacks-afnocare",
+        "imageUrl": "https://hack.godawari.edu.np/_next/image?url=%2Flogo-godawari-hacks-nobg.png&w=256&q=75",
+        "logoUrl": "https://hack.godawari.edu.np/_next/image?url=%2Flogo-godawari-hacks-nobg.png&w=256&q=75"
+      },
+      {
+        "id": "wcbt-healthwhisper-ai",
+        "title": "WCBT Hackathon: HealthWhisper",
+        "description": "Built HealthWhisper—an advanced clinical AI analyzing intake data and dispatching doctor summaries.",
+        "status": "Completed",
+        "badge": "Hackathon",
+        "blogId": "wcbt-healthwhisper-ai",
         "imageUrl": "https://ik.imagekit.io/qn3m81dsk/university/Address%20(13).png",
-        "logoUrl": "https://ik.imagekit.io/qn3m81dsk/university/Address%20(13).png",
-        "url": "https://github.com/Aaryanbanskota"
+        "logoUrl": "https://ik.imagekit.io/qn3m81dsk/university/Address%20(13).png"
+      },
+      {
+        "id": "webathon-health-calorie-tracker",
+        "title": "MBMC Webathon: Calorie Tracker",
+        "description": "Built a pure HTML, CSS, and JS health and calorie tracking app with custom UI and local storage.",
+        "status": "Completed",
+        "badge": "Webathon",
+        "blogId": "webathon-health-calorie-tracker",
+        "imageUrl": "https://www.mbmc.edu.np/assets/site/img/mbmc.svg",
+        "logoUrl": "https://www.mbmc.edu.np/assets/site/img/mbmc.svg"
       }
     ]
   },

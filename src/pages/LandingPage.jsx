@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { AnimatedCard, AnimatedText } from '@/components/layout/AnimatedCard';
 import details from '@/data/details.json';
@@ -213,11 +214,10 @@ export default function LandingPage({ isPreloaderDone = true }) {
                           </div>
 
                           {/* Achievement Card */}
-                          <a 
-                            href={ms.url} 
-                            target="_blank" 
-                            rel="noreferrer"
-                            className="flex-grow p-5 md:p-6 rounded-2xl dark:bg-zinc-900/50 bg-slate-50 border dark:border-zinc-800 border-slate-200 group-hover:dark:border-zinc-700 group-hover:border-slate-300 group-hover:dark:bg-zinc-900/80 group-hover:bg-indigo-50/50 transition-all duration-200 block relative overflow-hidden shadow-sm"
+                          <Link 
+                            to={`/blog/${ms.blogId || ms.id}`}
+                            onClick={() => setActiveId(null)}
+                            className="flex-grow p-5 md:p-6 rounded-2xl dark:bg-zinc-900/50 bg-slate-50 border dark:border-zinc-800 border-slate-200 group-hover:dark:border-indigo-500/50 group-hover:border-indigo-500/50 group-hover:dark:bg-zinc-900/80 group-hover:bg-indigo-50/50 transition-all duration-200 block relative overflow-hidden shadow-sm"
                           >
                             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                               
@@ -232,7 +232,7 @@ export default function LandingPage({ isPreloaderDone = true }) {
                                     {ms.badge || ms.status}
                                   </span>
                                 </div>
-                                <h3 className="text-xl font-bold dark:text-zinc-100 text-slate-900 group-hover:text-indigo-600 dark:group-hover:text-white transition-colors">
+                                <h3 className="text-xl font-bold dark:text-zinc-100 text-slate-900 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
                                   {ms.title}
                                 </h3>
                                 <p className="dark:text-zinc-400 text-slate-600 text-sm leading-relaxed max-w-xl">
@@ -246,6 +246,8 @@ export default function LandingPage({ isPreloaderDone = true }) {
                                   <img 
                                     src={ms.logoUrl} 
                                     alt={ms.title} 
+                                    loading="lazy"
+                                    decoding="async"
                                     className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-200" 
                                   />
                                 </div>
@@ -253,11 +255,11 @@ export default function LandingPage({ isPreloaderDone = true }) {
 
                             </div>
 
-                            <div className="mt-4 pt-3 border-t dark:border-zinc-800/60 border-slate-200 flex items-center justify-between text-xs dark:text-zinc-400 text-slate-500 font-medium group-hover:dark:text-zinc-200 group-hover:text-slate-900 transition-colors">
-                              <span>View details</span>
-                              <span className="group-hover:translate-x-1 transition-transform">↗</span>
+                            <div className="mt-4 pt-3 border-t dark:border-zinc-800/60 border-slate-200 flex items-center justify-between text-xs text-indigo-600 dark:text-indigo-400 font-semibold group-hover:translate-x-1 transition-transform">
+                              <span>Read Milestone Article</span>
+                              <span>↗</span>
                             </div>
-                          </a>
+                          </Link>
 
                         </motion.div>
                       ))}
