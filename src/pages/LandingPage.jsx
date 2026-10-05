@@ -137,7 +137,7 @@ export default function LandingPage() {
                   <div className="flex flex-col md:flex-row gap-10 items-center md:items-start text-left">
                      <img src={details.profile.avatarUrl} alt="Face" className="w-48 h-48 rounded-3xl object-cover shadow-2xl border-2 border-zinc-800" />
                      <div className="space-y-6">
-                       <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-cyan-400">
+                       <h2 className="text-4xl md:text-5xl font-black text-white">
                          {details.profile.name}
                        </h2>
                        <p className="text-xl text-zinc-300 leading-relaxed font-light">
@@ -153,7 +153,7 @@ export default function LandingPage() {
                     <div className="space-y-6">
                       {details.skills.categories.map((cat, idx) => (
                         <div key={idx} className="space-y-3">
-                          <h3 className="text-sm font-semibold uppercase tracking-wider text-indigo-400">{cat.category}</h3>
+                          <h3 className="text-sm font-semibold uppercase tracking-wider text-zinc-400">{cat.category}</h3>
                           <div className="flex flex-wrap gap-3">
                             {cat.skills.map((skill, i) => (
                               <motion.div 
@@ -161,7 +161,7 @@ export default function LandingPage() {
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ delay: i * 0.02 }}
                                 key={i} 
-                                className="px-3.5 py-2 text-sm rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-200 flex items-center gap-2.5 shadow-md hover:border-zinc-600 transition-colors"
+                                className="px-3.5 py-2 text-sm rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-200 flex items-center gap-2.5 shadow-md hover:border-zinc-700 transition-colors"
                               >
                                 <img src={skill.icon} alt={skill.name} className="w-4 h-4 object-contain" />
                                 <span>{skill.name}</span>
@@ -179,38 +179,38 @@ export default function LandingPage() {
                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-zinc-800 pb-6">
                       <div>
                         <h2 className="text-3xl font-bold text-zinc-100 tracking-wide">Milestones Timeline</h2>
-                        <p className="text-zinc-400 text-sm mt-1">Hover over nodes to explore key hackathons, achievements & experience.</p>
+                        <p className="text-zinc-400 text-sm mt-1">Explore key hackathons, achievements & engineering experience.</p>
                       </div>
-                      <span className="self-start md:self-auto text-xs px-3 py-1 rounded-full bg-indigo-950 border border-indigo-800 text-indigo-300 font-semibold">
-                        Interactive Path
+                      <span className="self-start md:self-auto text-xs px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-300 font-medium">
+                        Timeline
                       </span>
                     </div>
 
-                    {/* Interactive Vertical Timeline Path with Glowing Dots */}
+                    {/* Clean Timeline Path with Subtle Node Dots */}
                     <div className="relative pl-6 md:pl-10 space-y-8">
                       
-                      {/* Central Glowing Connector Line */}
-                      <div className="absolute left-[11px] md:left-[19px] top-6 bottom-6 w-1 bg-gradient-to-b from-indigo-500 via-purple-500 to-emerald-500 shadow-[0_0_15px_rgba(99,102,241,0.8)] rounded-full z-0" />
+                      {/* Subtle Vertical Connector Line */}
+                      <div className="absolute left-[11px] md:left-[19px] top-6 bottom-6 w-[2px] bg-zinc-800 z-0" />
 
                       {details.milestones.items.map((ms, i) => (
                         <motion.div 
                           key={i}
-                          initial={{ opacity: 0, x: -20 }}
+                          initial={{ opacity: 0, x: -15 }}
                           animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: i * 0.08 }}
+                          transition={{ delay: i * 0.06 }}
                           className="relative flex items-start gap-4 md:gap-6 group"
                         >
-                          {/* Glowing Interactive Dot Node */}
-                          <div className="relative z-10 w-6 h-6 md:w-8 md:h-8 rounded-full bg-indigo-600 border-4 border-zinc-950 shadow-[0_0_15px_rgba(99,102,241,1)] group-hover:scale-125 group-hover:bg-cyan-400 group-hover:shadow-[0_0_25px_rgba(34,211,238,1)] transition-all duration-300 shrink-0 mt-2 flex items-center justify-center cursor-pointer">
-                            <div className="w-2 h-2 rounded-full bg-white opacity-80" />
+                          {/* Subtle Interactive Dot Node */}
+                          <div className="relative z-10 w-5 h-5 md:w-6 md:h-6 rounded-full bg-zinc-800 border-2 border-zinc-700 group-hover:bg-indigo-500 group-hover:border-indigo-400 transition-all duration-200 shrink-0 mt-2 flex items-center justify-center cursor-pointer">
+                            <div className="w-1.5 h-1.5 rounded-full bg-zinc-400 group-hover:bg-white transition-colors" />
                           </div>
 
-                          {/* Achievement Glassmorphism Card */}
+                          {/* Achievement Card */}
                           <a 
                             href={ms.url} 
                             target="_blank" 
                             rel="noreferrer"
-                            className="flex-grow p-5 md:p-6 rounded-2xl bg-zinc-900/60 border border-zinc-800/90 group-hover:border-indigo-500/80 group-hover:bg-zinc-900/90 group-hover:shadow-[0_12px_30px_rgba(99,102,241,0.2)] transition-all duration-300 transform group-hover:-translate-y-1 block relative overflow-hidden"
+                            className="flex-grow p-5 md:p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800 group-hover:border-zinc-700 group-hover:bg-zinc-900/80 transition-all duration-200 block relative overflow-hidden"
                           >
                             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                               
@@ -218,14 +218,14 @@ export default function LandingPage() {
                               <div className="space-y-2 flex-grow">
                                 <div className="flex items-center gap-3">
                                   <span className={`text-xs font-semibold px-3 py-1 rounded-full border shadow-sm ${
-                                    ms.status === 'Winner 🏆' ? 'bg-amber-950/80 border-amber-500/60 text-amber-300' :
-                                    ms.status === 'Completed' ? 'bg-emerald-950/80 border-emerald-500/60 text-emerald-300' :
-                                    'bg-indigo-950/80 border-indigo-600/50 text-indigo-300'
+                                    ms.status === 'Winner 🏆' ? 'bg-amber-950/60 border-amber-800/60 text-amber-300' :
+                                    ms.status === 'Completed' ? 'bg-emerald-950/60 border-emerald-800/60 text-emerald-300' :
+                                    'bg-zinc-800 border-zinc-700 text-zinc-300'
                                   }`}>
                                     {ms.badge || ms.status}
                                   </span>
                                 </div>
-                                <h3 className="text-xl font-bold text-zinc-100 group-hover:text-indigo-300 transition-colors">
+                                <h3 className="text-xl font-bold text-zinc-100 group-hover:text-white transition-colors">
                                   {ms.title}
                                 </h3>
                                 <p className="text-zinc-400 text-sm leading-relaxed max-w-xl">
@@ -233,21 +233,21 @@ export default function LandingPage() {
                                 </p>
                               </div>
 
-                              {/* Right Logo Badge Container */}
+                              {/* Right Logo Container */}
                               {ms.logoUrl && (
-                                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-zinc-950/90 rounded-2xl border border-zinc-800/90 p-3 flex items-center justify-center shrink-0 group-hover:border-indigo-500/50 transition-colors shadow-inner">
+                                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-zinc-950 rounded-xl border border-zinc-800 p-3 flex items-center justify-center shrink-0 group-hover:border-zinc-700 transition-colors">
                                   <img 
                                     src={ms.logoUrl} 
                                     alt={ms.title} 
-                                    className="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow" 
+                                    className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-200" 
                                   />
                                 </div>
                               )}
 
                             </div>
 
-                            <div className="mt-4 pt-3 border-t border-zinc-800/60 flex items-center justify-between text-xs text-indigo-400 font-medium group-hover:text-cyan-300 transition-colors">
-                              <span>Explore Achievement</span>
+                            <div className="mt-4 pt-3 border-t border-zinc-800/60 flex items-center justify-between text-xs text-zinc-400 font-medium group-hover:text-zinc-200 transition-colors">
+                              <span>View details</span>
                               <span className="group-hover:translate-x-1 transition-transform">↗</span>
                             </div>
                           </a>
