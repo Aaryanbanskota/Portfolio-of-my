@@ -86,7 +86,12 @@ export default function Contact() {
             className="w-full py-3.5 px-6 rounded-2xl dark:bg-zinc-900 bg-indigo-50/80 border dark:border-zinc-800 border-indigo-200 dark:text-zinc-200 text-indigo-900 font-semibold text-sm flex items-center justify-between hover:border-indigo-500/60 dark:hover:bg-zinc-800/80 hover:bg-indigo-100 transition-all shadow-sm group"
           >
             <div className="flex items-center gap-3">
-              <span className="text-lg">📧</span>
+              <svg className="w-5 h-5 shrink-0" viewBox="0 0 24 24">
+                <path fill="#4285F4" d="M22 6c0-.88-.59-1.63-1.4-1.87l-8.6 6.45L3.4 4.13C2.59 4.37 2 5.12 2 6v12c0 1.1.9 2 2 2h3V10.27l5 3.75 5-3.75V20h3c1.1 0 2-.9 2-2V6z"/>
+                <path fill="#34A853" d="M4 20h3v-9.73L2 6.45V18c0 1.1.9 2 2 2z"/>
+                <path fill="#EA4335" d="M20 4H4c-.77 0-1.47.43-1.82 1.07l9.82 7.37 9.82-7.37C21.47 4.43 20.77 4 20 4z"/>
+                <path fill="#FBBC04" d="M20 20c1.1 0 2-.9 2-2V6.45l-5 3.82V20h3z"/>
+              </svg>
               <span className="font-mono text-xs sm:text-sm">aaryanbanskota@gmail.com</span>
             </div>
             <span className="text-xs px-2.5 py-1 rounded-lg bg-indigo-600 text-white font-medium shadow-xs group-hover:bg-indigo-500 transition-colors">

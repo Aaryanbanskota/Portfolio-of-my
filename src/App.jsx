@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
+import Blog from './pages/Blog';
+import BlogDetail from './pages/BlogDetail';
 import { MacDock } from './components/layout/MacDock';
 import { Preloader } from './components/layout/Preloader';
 import details from './data/details.json';
@@ -59,6 +61,8 @@ function App() {
             <Route path="/" element={<LandingPage isPreloaderDone={isPreloaderDone} />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/projects/:projectId" element={<ProjectDetail />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:blogId" element={<BlogDetail />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
           <MacDock />
