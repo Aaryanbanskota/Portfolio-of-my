@@ -5,6 +5,7 @@ import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import BlogDetail from './pages/BlogDetail';
+import NotFound from './pages/NotFound';
 import { MacDock } from './components/layout/MacDock';
 import { Preloader } from './components/layout/Preloader';
 import details from './data/details.json';
@@ -64,6 +65,7 @@ function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:blogId" element={<BlogDetail />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
           <MacDock />
         </div>
